@@ -1,0 +1,24 @@
+{
+    "name": "bot",
+    "version": "0.1.0",
+    "description": "Example discord bot with Typescript + esm",
+    "main": "index.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "tsx watch --clear-screen=false ./index.ts",
+        "start": "tsx ./index.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@discord-fp/djs": "4.0.1",
+        "config": "workspace:*",
+        "discord.js": "14.11.0",
+        "typescript": "5.0.4",
+        "zod": "^3.21.4"
+    },
+    "devDependencies": {
+        "tsx": "^3.12.2"
+    }
+}

@@ -1,23 +1,20 @@
 {
-  "name": "discord-bot",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@types/node": "20.2.0",
-    "@types/react": "18.2.6",
-    "@types/react-dom": "18.2.4",
-    "autoprefixer": "10.4.14",
-    "next": "13.4.2",
-    "postcss": "8.4.23",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
-  }
+    "name": "discord-bot",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "dotenv -- turbo dev",
+        "build": "dotenv -- turbo build",
+        "start": "dotenv -- turbo start",
+        "lint": "turbo lint",
+        "db:push": "dotenv -- prisma db push"
+    },
+    "devDependencies": {
+        "dotenv-cli": "^7.2.1",
+        "turbo": "^1.9.8",
+        "prisma": "^4.9.0"
+    },
+    "dependencies": {
+        "@prisma/client": "^4.9.0"
+    }
 }

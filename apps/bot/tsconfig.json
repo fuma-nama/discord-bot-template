@@ -1,0 +1,15 @@
+{
+    "extends": "config/base.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "esModuleInterop": true,
+        "module": "es2020",
+        "moduleResolution": "nodenext",
+        "target": "ES2022",
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "paths": { "@/*": ["./*"] }
+    },
+    "include": ["node_modules/database"],
+    "exclude": []
+}
