@@ -9,7 +9,5 @@
         "strictNullChecks": true,
         "noImplicitThis": true,
         "paths": { "@/*": ["./*"] }
-    },
-    "include": ["node_modules/database"],
-    "exclude": []
+    }
 }
