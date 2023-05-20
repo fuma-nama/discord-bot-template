@@ -4,7 +4,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (
         <main className="flex flex-col">
             <Navbar />
-            <div className="container py-12">{children}</div>
+            <div className="container py-12 lg:py-24">{children}</div>
         </main>
     );
 }
