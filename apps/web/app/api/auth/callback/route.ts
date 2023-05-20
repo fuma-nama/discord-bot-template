@@ -14,7 +14,7 @@ type TokenResponse = {
 export async function GET(request: NextRequest) {
     const code = request.nextUrl.searchParams.get("code");
     const res = NextResponse.redirect(
-        new NextURL("/dashboard/test", request.url)
+        new NextURL("/dashboard", request.url)
     );
 
     if (code == null) {
