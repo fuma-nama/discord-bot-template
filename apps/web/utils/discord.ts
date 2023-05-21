@@ -128,9 +128,7 @@ export async function fetchGuildInfo(
         headers: {
             Authorization: `Bot ${botToken}`,
         },
-        next: {
-            revalidate: 30,
-        },
+        cache: "no-cache",
     });
 
     if (!res.ok) {
