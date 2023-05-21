@@ -6,3 +6,5 @@ export const absolute_url: string =
         : `http://localhost:${process.env.PORT ?? 3000}`;
 
 export const token_cookie = "token_cookie";
+
+export const invite_url = process.env.NEXT_PUBLIC_DISCORD_INVITE_URL!;

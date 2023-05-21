@@ -16,6 +16,7 @@ import { LogoutDropdownMenuItem } from "./logout";
 import { Logo } from "@/components/icons/logo";
 import { MenuIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { invite_url } from "@/utils/shared";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (
@@ -29,29 +30,38 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 function Navbar() {
     return (
         <nav className="border-b-2 sticky top-0 bg-background z-50">
-            <div className="container flex flex-row py-3 items-center">
-                <Link href="/dashboard">
-                    <Logo className="w-7 h-7" />
-                </Link>
-                <Separator className="flex-shrink-0 w-8 h-8 mx-1 text-border" />
-                <Suspense
-                    fallback={
-                        <span className="w-20 h-7 rounded-lg bg-secondary" />
-                    }
-                >
-                    {/* @ts-expect-error Server Component */}
-                    <UserWithName />
-                </Suspense>
-
-                <div className="mx-auto" />
-                <Suspense
-                    fallback={
-                        <span className="w-7 h-7 rounded-full bg-secondary" />
-                    }
-                >
-                    {/* @ts-expect-error Server Component */}
-                    <MenuTrigger />
-                </Suspense>
+            <div className="container flex flex-row gap-4 py-3">
+                <div className="flex flex-row items-center flex-1">
+                    <Link href="/dashboard">
+                        <Logo className="w-7 h-7" />
+                    </Link>
+                    <Separator className="flex-shrink-0 w-8 h-8 mx-1 text-border" />
+                    <Suspense
+                        fallback={
+                            <span className="w-20 h-7 rounded-lg bg-secondary" />
+                        }
+                    >
+                        {/* @ts-expect-error Server Component */}
+                        <UserWithName />
+                    </Suspense>
+                </div>
+                <div className="flex flex-row gap-4 items-center">
+                    <Link
+                        href={invite_url}
+                        target="_blank"
+                        className="bg-secondary text-secondary-foreground rounded-md px-4 py-1 font-medium text-sm max-md:hidden"
+                    >
+                        Invite
+                    </Link>
+                    <Suspense
+                        fallback={
+                            <span className="w-7 h-7 rounded-full bg-secondary" />
+                        }
+                    >
+                        {/* @ts-expect-error Server Component */}
+                        <MenuTrigger />
+                    </Suspense>
+                </div>
             </div>
         </nav>
     );
@@ -62,13 +72,15 @@ async function UserWithName() {
     const user = await fetchUserInfo(data);
 
     return (
-        <div className="flex flex-row gap-2 items-center">
+        <div className="flex flex-row gap-2 items-center flex-1">
             <Icon
                 className="w-7 h-7"
                 src={avatarUrl(user, 80)}
                 fallback={user.username}
             />
-            <p className="font-medium text-sm">{user.username}</p>
+            <p className="font-medium text-sm overflow-hidden flex-1 w-0 overflow-ellipsis whitespace-nowrap">
+                {user.username}
+            </p>
         </div>
     );
 }
