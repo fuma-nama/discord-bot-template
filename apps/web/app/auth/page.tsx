@@ -1,23 +1,31 @@
+import { Logo } from "@/components/icons/logo";
+import { buttonVariants } from "@/components/ui/button";
 import { getLoginUrl } from "@/utils/auth/client";
 import Link from "next/link";
 
 export default function AuthPage() {
     return (
-        <div className="flex flex-col gap-3">
-            <h1 className="text-2xl font-bold">Auth</h1>
-            <LoginForm />
-        </div>
+        <main className="flex flex-col min-h-screen">
+            <nav className="container flex flex-row gap-3 py-2 items-center">
+                <Logo className="w-6 h-6" />
+                <p className="font-bold mr-auto">Discord Bot</p>
+            </nav>
+            <div className="flex flex-col gap-4 container items-center justify-center text-center flex-1 max-w-[400px]">
+                <h1 className="text-2xl font-bold">Login to Dashboard</h1>
+                <LoginForm />
+            </div>
+        </main>
     );
 }
 
 function LoginForm() {
     return (
-        <div>
+        <div className="flex flex-col w-full mt-4">
             <Link
-                className="bg-white text-black rounded-md px-4 py-2"
+                className={buttonVariants({ size: "lg" })}
                 href={getLoginUrl()}
             >
-                Login
+                Continue with Discord
             </Link>
         </div>
     );

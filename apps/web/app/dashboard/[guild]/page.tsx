@@ -1,4 +1,4 @@
-import { logoutAction } from "@/components/auth/logout";
+import { logoutAction } from "@/utils/auth/logout";
 import { session } from "@/utils/auth/server";
 
 export default function GuildPage() {
