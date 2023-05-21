@@ -3,7 +3,7 @@ import { ComponentProps } from "react";
 export function Logo(props: ComponentProps<"svg">) {
     return (
         <svg viewBox="0 0 100 100" {...props}>
-            <g clip-path="url(#clip0_133_1294)">
+            <g clipPath="url(#clip0_133_1294)">
                 <mask
                     id="mask0_133_1294"
                     style={{ maskType: "alpha" }}

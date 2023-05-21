@@ -14,10 +14,11 @@ import Link from "next/link";
 import { logoutAction } from "@/utils/auth/logout";
 import { LogoutDropdownMenuItem } from "./logout";
 import { Logo } from "@/components/icons/logo";
+import { MenuIcon } from "lucide-react";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (
-        <main className="flex flex-col">
+        <main className="flex flex-col relative">
             <Navbar />
             <div className="container py-12 lg:py-24">{children}</div>
         </main>
@@ -26,32 +27,64 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
 function Navbar() {
     return (
-        <nav className="border-b-2">
-            <div className="container flex flex-row gap-3 py-2 items-center">
-                <Logo className="w-6 h-6" />
-                <p className="font-bold mr-auto">Discord Bot</p>
-
+        <nav className="border-b-2 sticky top-0 bg-background z-50">
+            <div className="container flex flex-row gap-3 py-3 items-center">
+                <Link href="/dashboard">
+                    <Logo className="w-7 h-7" />
+                </Link>
+                <span className="text-xl text-border">/</span>
                 <Suspense
                     fallback={
-                        <span className="w-10 h-10 rounded-full bg-secondary" />
+                        <span className="w-20 h-7 rounded-lg bg-secondary" />
                     }
                 >
                     {/* @ts-expect-error Server Component */}
-                    <User />
+                    <UserWithName />
+                </Suspense>
+
+                <div className="mx-auto" />
+                <Suspense
+                    fallback={
+                        <span className="w-7 h-7 rounded-full bg-secondary" />
+                    }
+                >
+                    {/* @ts-expect-error Server Component */}
+                    <MenuTrigger />
                 </Suspense>
             </div>
         </nav>
     );
 }
 
-async function User() {
+async function UserWithName() {
+    const data = session();
+    const user = await fetchUserInfo(data);
+
+    return (
+        <div className="flex flex-row gap-3 items-center">
+            <Icon
+                className="w-7 h-7"
+                src={avatarUrl(user, 80)}
+                fallback={user.username}
+            />
+            <p className="font-semibold">{user.username}</p>
+        </div>
+    );
+}
+
+async function MenuTrigger() {
     const data = session();
     const user = await fetchUserInfo(data);
 
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className="focus-visible:outline-none">
-                <Icon src={avatarUrl(user, 80)} fallback={user.username} />
+                <MenuIcon className="w-7 h-7 md:hidden" />
+                <Icon
+                    className="w-7 h-7 max-md:hidden"
+                    src={avatarUrl(user, 80)}
+                    fallback={user.username}
+                />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
                 <DropdownMenuLabel>{user.username}</DropdownMenuLabel>
