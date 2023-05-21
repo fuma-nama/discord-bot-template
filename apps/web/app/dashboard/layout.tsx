@@ -15,6 +15,7 @@ import { logoutAction } from "@/utils/auth/logout";
 import { LogoutDropdownMenuItem } from "./logout";
 import { Logo } from "@/components/icons/logo";
 import { MenuIcon } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (
@@ -28,11 +29,11 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 function Navbar() {
     return (
         <nav className="border-b-2 sticky top-0 bg-background z-50">
-            <div className="container flex flex-row gap-3 py-3 items-center">
+            <div className="container flex flex-row py-3 items-center">
                 <Link href="/dashboard">
                     <Logo className="w-7 h-7" />
                 </Link>
-                <span className="text-xl text-border">/</span>
+                <Separator className="flex-shrink-0 w-8 h-8 mx-1 text-border" />
                 <Suspense
                     fallback={
                         <span className="w-20 h-7 rounded-lg bg-secondary" />
@@ -61,13 +62,13 @@ async function UserWithName() {
     const user = await fetchUserInfo(data);
 
     return (
-        <div className="flex flex-row gap-3 items-center">
+        <div className="flex flex-row gap-2 items-center">
             <Icon
                 className="w-7 h-7"
                 src={avatarUrl(user, 80)}
                 fallback={user.username}
             />
-            <p className="font-semibold">{user.username}</p>
+            <p className="font-medium text-sm">{user.username}</p>
         </div>
     );
 }
