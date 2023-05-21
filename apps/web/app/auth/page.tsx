@@ -1,6 +1,7 @@
 import { Logo } from "@/components/icons/logo";
 import { buttonVariants } from "@/components/ui/button";
 import { getLoginUrl } from "@/utils/auth/client";
+import { cn } from "@/utils/cn";
 import Link from "next/link";
 
 export default function AuthPage() {
@@ -22,7 +23,7 @@ function LoginForm() {
     return (
         <div className="flex flex-col w-full mt-4">
             <Link
-                className={buttonVariants({ size: "lg" })}
+                className={cn(buttonVariants({ size: "lg" }))}
                 href={getLoginUrl()}
             >
                 Continue with Discord

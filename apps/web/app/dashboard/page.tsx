@@ -1,8 +1,7 @@
-import { Icon } from "@/components/ui/avatar";
 import { session } from "@/utils/auth/server";
-import { Guild, PermissionFlags, fetchGuilds, iconUrl } from "@/utils/discord";
-import Link from "next/link";
+import { fetchGuilds } from "@/utils/discord";
 import { Suspense } from "react";
+import { GuildsProvider, GuildsContent } from "./guilds";
 
 export default function DashboardPage() {
     const data = session();
@@ -14,10 +13,12 @@ export default function DashboardPage() {
                 Select your server and start using our bot
             </p>
 
-            <Suspense fallback={<Skeleton />}>
-                {/* @ts-expect-error Server Component */}
-                <Guilds session={data} />
-            </Suspense>
+            <GuildsProvider>
+                <Suspense fallback={<Skeleton />}>
+                    {/* @ts-expect-error Server Component */}
+                    <Guilds session={data} />
+                </Suspense>
+            </GuildsProvider>
         </div>
     );
 }
@@ -41,33 +42,5 @@ function Skeleton() {
 async function Guilds({ session }: { session: string }) {
     const guilds = await fetchGuilds(session);
 
-    return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            {guilds
-                .filter(
-                    (guild) =>
-                        Number(guild.permissions) &
-                        PermissionFlags.ADMINISTRATOR
-                )
-                .map((guild) => (
-                    <Item key={guild.id} guild={guild} />
-                ))}
-        </div>
-    );
-}
-
-function Item({ guild }: { guild: Guild }) {
-    return (
-        <Link
-            href={`/dashboard/${guild.id}`}
-            className="flex flex-col gap-4 rounded-lg p-4 bg-card border-[1px] hover:border-dominant transition-colors"
-        >
-            <Icon
-                src={iconUrl(guild, 80)}
-                className="rounded-md w-[50px] h-[50px]"
-                fallback={guild.name}
-            />
-            <p className="font-semibold">{guild.name}</p>
-        </Link>
-    );
+    return <GuildsContent guilds={guilds} />;
 }
