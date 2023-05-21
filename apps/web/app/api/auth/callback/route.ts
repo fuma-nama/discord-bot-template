@@ -13,11 +13,13 @@ type TokenResponse = {
 
 export async function GET(request: NextRequest) {
     const code = request.nextUrl.searchParams.get("code");
-    const res = NextResponse.redirect(
-        new NextURL("/dashboard", request.url)
-    );
+    const res = NextResponse.redirect(new NextURL("/dashboard", request.url));
 
     if (code == null) {
+        if (request.nextUrl.searchParams.get("error") === "access_denied") {
+            return NextResponse.redirect(new NextURL("/auth", request.url));
+        }
+
         return NextResponse.json(`Authorization code is missing`, {
             status: 401,
         });
