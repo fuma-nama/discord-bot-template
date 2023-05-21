@@ -1,17 +1,20 @@
-import { logoutAction } from "@/utils/auth/logout";
-import { session } from "@/utils/auth/server";
+import { fetchGuildInfo } from "@/utils/discord";
+import { InvitePanel } from "./invite-panel";
 
-export default function GuildPage() {
-    const token = session();
+export default async function GuildPage({
+    params,
+}: {
+    params: { guild: string };
+}) {
+    const guild = await fetchGuildInfo(process.env.TOKEN!, params.guild);
+
+    if (guild == null) {
+        return <InvitePanel guild={params.guild} />;
+    }
 
     return (
         <div>
-            Guild {token}
-            <form action={logoutAction}>
-                <button className="px-4 py-2 bg-white text-black">
-                    Logout
-                </button>
-            </form>
+            <h1 className="text-4xl font-bold">{guild?.name}</h1>
         </div>
     );
 }
