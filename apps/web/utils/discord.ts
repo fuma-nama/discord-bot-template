@@ -139,7 +139,9 @@ export function iconUrl(guild: Guild, size: number = 512) {
 }
 
 export function avatarUrl(user: UserInfo, size: number = 512) {
-    return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}?size=${size}`;
+    return user.avatar != null
+        ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}?size=${size}`
+        : null;
 }
 
 export function bannerUrl(
