@@ -11,8 +11,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ReactNode, Suspense } from "react";
 import Link from "next/link";
-import { logoutAction } from "@/components/auth/logout";
+import { logoutAction } from "@/utils/auth/logout";
 import { LogoutDropdownMenuItem } from "./logout";
+import { Logo } from "@/components/icons/logo";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (
@@ -27,7 +28,8 @@ function Navbar() {
     return (
         <nav className="border-b-2">
             <div className="container flex flex-row gap-3 py-2 items-center">
-                <p className="font-semibold mr-auto">Discord Bot</p>
+                <Logo className="w-6 h-6" />
+                <p className="font-bold mr-auto">Discord Bot</p>
 
                 <Suspense
                     fallback={
@@ -49,7 +51,7 @@ async function User() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className="focus-visible:outline-none">
-                <Icon src={avatarUrl(user, 30)} fallback={user.username} />
+                <Icon src={avatarUrl(user, 80)} fallback={user.username} />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
                 <DropdownMenuLabel>{user.username}</DropdownMenuLabel>
