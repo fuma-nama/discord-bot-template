@@ -20,9 +20,11 @@ import { invite_url } from "@/utils/shared";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (
-        <main className="flex flex-col relative">
+        <main className="flex flex-col relative min-h-screen">
             <Navbar />
-            <div className="container py-12 lg:py-24">{children}</div>
+            <div className="container py-12 lg:py-24 flex-1 flex flex-col">
+                {children}
+            </div>
         </main>
     );
 }

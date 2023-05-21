@@ -11,7 +11,7 @@ export default function AuthPage() {
                 <Logo className="w-6 h-6" />
                 <p className="font-bold mr-auto">Discord Bot</p>
             </nav>
-            <div className="flex flex-col gap-4 container items-center justify-center text-center flex-1 max-w-[400px]">
+            <div className="flex flex-col gap-4 container items-center justify-center text-center flex-1 max-w-sm">
                 <h1 className="text-2xl font-bold">Login to Dashboard</h1>
                 <LoginForm />
             </div>
