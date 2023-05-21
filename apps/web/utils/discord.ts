@@ -63,6 +63,11 @@ export enum PermissionFlags {
     MODERATE_MEMBERS = 1 << 40,
 }
 
+type DiscordError = {
+    code: number;
+    message?: string;
+};
+
 export enum ChannelTypes {
     GUILD_TEXT = 0,
     DM = 1,
@@ -114,11 +119,14 @@ export async function fetchGuilds(accessToken: string) {
     return (await res.json()) as Guild[];
 }
 
-export async function fetchGuildInfo(accessToken: string, id: string) {
-    const res = await fetch(`"https://discord.com/api/v9/guilds/${id}"`, {
+export async function fetchGuildInfo(
+    botToken: string,
+    id: string
+): Promise<Guild | null> {
+    const res = await fetch(`https://discord.com/api/v9/guilds/${id}`, {
         method: "GET",
         headers: {
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: `Bot ${botToken}`,
         },
         next: {
             revalidate: 30,
@@ -126,6 +134,11 @@ export async function fetchGuildInfo(accessToken: string, id: string) {
     });
 
     if (!res.ok) {
+        const data = (await res.json()) as DiscordError;
+
+        //bot hadn't join the guild
+        if (data.code === 10004) return null;
+
         throw new Error(await res.text());
     }
 
