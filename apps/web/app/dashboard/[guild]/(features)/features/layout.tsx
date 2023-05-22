@@ -43,7 +43,11 @@ export default function FeatureLayout({
 }
 
 async function GuildInfo({ guild }: { guild: string }) {
-    const info = await fetchGuildInfo(process.env.TOKEN!, guild, true);
+    const info = await fetchGuildInfo(
+        process.env.DISCORD_BOT_TOKEN!,
+        guild,
+        true
+    );
 
     if (info == null) {
         notFound();

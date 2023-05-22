@@ -11,7 +11,11 @@ export default async function GuildLayout({
     params: { guild: string };
     children: ReactNode;
 }) {
-    const guild = await fetchGuildInfo(process.env.TOKEN!, params.guild, true);
+    const guild = await fetchGuildInfo(
+        process.env.DISCORD_BOT_TOKEN!,
+        params.guild,
+        true
+    );
 
     if (guild == null) return <InvitePanel guild={params.guild} />;
 
