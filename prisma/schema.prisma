@@ -13,5 +13,17 @@ datasource db {
 //Example model
 model Test {
   id Int @default(autoincrement()) @id
+  guild_id String @default("")
   value String
+}
+
+
+model WelcomeFeature {
+  guild_id String @id
+  message String @default("Welcome!")
+}
+
+model StorageFeature {
+  guild_id String @id
+
 }

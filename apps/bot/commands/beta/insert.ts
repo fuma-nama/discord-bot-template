@@ -10,9 +10,13 @@ export default protectedCommand.slash({
             maxLen: 100,
         }),
     },
+    scope: {
+        dm: false,
+    },
     async execute({ event, options, ctx }) {
         const result = await prisma.test.create({
             data: {
+                guild_id: event.guildId!,
                 value: options.value,
             },
         });
