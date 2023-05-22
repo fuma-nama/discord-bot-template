@@ -19,6 +19,10 @@ export type Guild = {
     permissions: string;
 };
 
+export type GuildWithCounts = Guild & {
+    approximate_member_count: number;
+};
+
 export enum PermissionFlags {
     CREATE_INSTANT_INVITE = 1 << 0,
     KICK_MEMBERS = 1 << 1,
@@ -119,17 +123,23 @@ export async function fetchGuilds(accessToken: string) {
     return (await res.json()) as Guild[];
 }
 
-export async function fetchGuildInfo(
+export async function fetchGuildInfo<Counts extends boolean = false>(
     botToken: string,
-    id: string
-): Promise<Guild | null> {
-    const res = await fetch(`https://discord.com/api/v9/guilds/${id}`, {
-        method: "GET",
-        headers: {
-            Authorization: `Bot ${botToken}`,
-        },
-        cache: "no-cache",
-    });
+    id: string,
+    with_counts?: Counts
+): Promise<(Counts extends true ? GuildWithCounts : Guild) | null> {
+    const res = await fetch(
+        `https://discord.com/api/v9/guilds/${id}?with_counts=${
+            with_counts ?? false
+        }`,
+        {
+            method: "GET",
+            headers: {
+                Authorization: `Bot ${botToken}`,
+            },
+            cache: "no-cache",
+        }
+    );
 
     if (!res.ok) {
         const data = (await res.json()) as DiscordError;
@@ -137,10 +147,10 @@ export async function fetchGuildInfo(
         //bot hadn't join the guild
         if (data.code === 10004) return null;
 
-        throw new Error(await res.text());
+        throw new Error(data.message);
     }
 
-    return (await res.json()) as Guild;
+    return await res.json();
 }
 
 export function iconUrl(guild: Guild, size: number = 512) {
