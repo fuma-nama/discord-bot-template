@@ -3,11 +3,11 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/utils/cn";
 import { invite_url } from "@/utils/shared";
 import useSWR from "swr";
-import { refresh } from "./actions";
+import { refreshGuild } from "./actions";
 import Link from "next/link";
 
 export function InvitePanel({ guild }: { guild: string }) {
-    useSWR(`/refresh/guilds/${guild}`, () => refresh(guild), {
+    useSWR(`/refresh/guilds/${guild}`, () => refreshGuild(guild), {
         revalidateOnMount: false,
     });
 
@@ -27,7 +27,7 @@ export function InvitePanel({ guild }: { guild: string }) {
                     })
                 )}
             >
-                Invite
+                Invite to Server
             </Link>
         </div>
     );

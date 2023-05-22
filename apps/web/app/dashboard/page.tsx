@@ -8,8 +8,10 @@ export default function DashboardPage() {
 
     return (
         <div className="flex flex-col gap-4">
-            <h1 className="text-4xl font-bold text-foreground">Dashboard</h1>
-            <p className="text-muted-foreground">
+            <h1 className="text-2xl md:text-4xl font-bold text-foreground">
+                Dashboard
+            </h1>
+            <p className="text-sm md:text-base text-muted-foreground">
                 Select your server and start using our bot
             </p>
 
