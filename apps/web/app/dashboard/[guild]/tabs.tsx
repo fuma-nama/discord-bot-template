@@ -5,7 +5,10 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 export function PageTabs() {
     const router = useRouter();
     const { guild } = useParams() as { guild: string };
-    const value = usePathname().split("/")[3] ?? "";
+    const paths = usePathname().split("/");
+    if (paths.length > 4) return <div className="mb-8" />;
+
+    const value = paths[3] ?? "";
 
     return (
         <Tabs
@@ -13,9 +16,10 @@ export function PageTabs() {
             onValueChange={(e) => router.push(`/dashboard/${guild}/${e}`)}
             className="mt-4 mb-8"
         >
-            <TabsList>
+            <TabsList className="max-w-fit">
                 <TabsTrigger value="">Overview</TabsTrigger>
                 <TabsTrigger value="features">Features</TabsTrigger>
+                <TabsTrigger value="billing">Billing</TabsTrigger>
                 <TabsTrigger value="settings">Settings</TabsTrigger>
             </TabsList>
         </Tabs>
