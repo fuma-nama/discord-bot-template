@@ -11,7 +11,7 @@ export function PageTabs() {
         <Tabs
             value={value}
             onValueChange={(e) => router.push(`/dashboard/${guild}/${e}`)}
-            className="my-4"
+            className="mt-4 mb-8"
         >
             <TabsList>
                 <TabsTrigger value="">Overview</TabsTrigger>
