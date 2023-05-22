@@ -21,7 +21,7 @@ export default function WelcomeMessage() {
                         Channel
                     </label>
                     <Select>
-                        <SelectTrigger id="channel" className="mt-2 max-w-xl">
+                        <SelectTrigger id="channel" className="mt-2">
                             <SelectValue
                                 placeholder={
                                     <p className="text-muted-foreground">
@@ -44,12 +44,12 @@ export default function WelcomeMessage() {
                     <Textarea
                         id="message"
                         placeholder="Type something here"
-                        className="mt-2 max-w-xl"
+                        className="mt-2"
                     />
                 </fieldset>
-                <div className="mt-auto grid grid-cols-2 w-fit gap-4">
-                    <Button className="px-4">Save</Button>
-                    <Button className="px-4" variant="secondary">
+                <div className="mt-auto flex flex-row gap-4 justify-end">
+                    <Button className="w-24">Save</Button>
+                    <Button className="w-24" variant="secondary">
                         Discard
                     </Button>
                 </div>

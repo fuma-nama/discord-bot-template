@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import { PageTabs } from "./tabs";
 import { fetchGuildInfo, iconUrl } from "@/utils/discord";
-import { Icon } from "@/components/ui/avatar";
 import { InvitePanel } from "@/components/invite-panel";
+import { PageTabs } from "./tabs";
+import { Icon } from "@/components/ui/avatar";
 
 export default async function GuildLayout({
     children,
