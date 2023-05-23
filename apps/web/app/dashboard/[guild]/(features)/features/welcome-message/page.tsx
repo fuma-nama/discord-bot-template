@@ -6,7 +6,7 @@ import { ChannelTypes, fetchGuildChannels } from "@/utils/discord";
 import { z } from "zod";
 
 const schema = z.object({
-    channel: z.string().optional(),
+    channel: z.string().nullable(),
     message: z.string(),
 });
 

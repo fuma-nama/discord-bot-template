@@ -31,7 +31,7 @@ export function UpdateForm({
     const { control, register, formState, reset, handleSubmit } = useForm<Data>(
         {
             defaultValues: {
-                channel: feature.channel_id ?? undefined,
+                channel: feature.channel_id,
                 message: feature.message,
             },
         }
@@ -39,7 +39,7 @@ export function UpdateForm({
 
     useEffect(() => {
         reset({
-            channel: feature.channel_id ?? undefined,
+            channel: feature.channel_id,
             message: feature.message,
         });
     }, [feature]);
@@ -57,7 +57,7 @@ export function UpdateForm({
                     name="channel"
                     render={({ field }) => (
                         <Select
-                            value={field.value}
+                            value={field.value ?? ""}
                             onValueChange={field.onChange}
                         >
                             <SelectTrigger
@@ -65,13 +65,19 @@ export function UpdateForm({
                                 ref={field.ref}
                                 onBlur={field.onBlur}
                             >
-                                <SelectValue
-                                    placeholder={
-                                        <p className="text-muted-foreground">
-                                            Select...
-                                        </p>
-                                    }
-                                />
+                                {field.value != null ? (
+                                    <SelectValue
+                                        placeholder={
+                                            <p className="text-muted-foreground">
+                                                Select...
+                                            </p>
+                                        }
+                                    />
+                                ) : (
+                                    <p className="text-muted-foreground">
+                                        Select...
+                                    </p>
+                                )}
                             </SelectTrigger>
                             <SelectContent>
                                 {channels.map((channel) => (
@@ -110,7 +116,7 @@ export function UpdateForm({
                     disabled={!formState.isDirty}
                     onClick={() => {
                         reset({
-                            channel: feature.channel_id ?? undefined,
+                            channel: feature.channel_id,
                             message: feature.message,
                         });
                     }}
