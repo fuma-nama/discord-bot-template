@@ -9,7 +9,7 @@ export function Form() {
     return (
         <button
             className="bg-white text-black px-4 py-2 rounded-md"
-            onClick={trigger}
+            onClick={() => trigger()}
         >
             {isMutating ? "Running" : "Run Action"}
         </button>
