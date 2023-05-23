@@ -20,6 +20,7 @@ model Test {
 
 model WelcomeFeature {
   guild_id String @id
+  channel_id String?
   message String @default("Welcome!")
 }
 

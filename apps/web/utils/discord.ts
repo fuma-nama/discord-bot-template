@@ -19,6 +19,11 @@ export type Guild = {
     permissions: string;
 };
 
+export type GuildChannel = {
+    id: string;
+    type: ChannelTypes;
+    name: string;
+};
 export type GuildWithCounts = Guild & {
     approximate_member_count: number;
 };
@@ -67,11 +72,6 @@ export enum PermissionFlags {
     MODERATE_MEMBERS = 1 << 40,
 }
 
-type DiscordError = {
-    code: number;
-    message?: string;
-};
-
 export enum ChannelTypes {
     GUILD_TEXT = 0,
     DM = 1,
@@ -86,6 +86,11 @@ export enum ChannelTypes {
     GUILD_DIRECTORY = 14,
     GUILD_FORUM = 15,
 }
+
+type DiscordError = {
+    code: number;
+    message?: string;
+};
 
 export async function fetchUserInfo(accessToken: string) {
     const res = await fetch("https://discord.com/api/v9/users/@me", {
@@ -137,7 +142,9 @@ export async function fetchGuildInfo<Counts extends boolean = false>(
             headers: {
                 Authorization: `Bot ${botToken}`,
             },
-            cache: "no-cache",
+            next: {
+                revalidate: 30,
+            },
         }
     );
 
@@ -148,6 +155,31 @@ export async function fetchGuildInfo<Counts extends boolean = false>(
         if (data.code === 10004) return null;
 
         throw new Error(data.message);
+    }
+
+    return await res.json();
+}
+
+export async function fetchGuildChannels(
+    botToken: string,
+    guild: string
+): Promise<GuildChannel[]> {
+    const res = await fetch(
+        `https://discord.com/api/v9/guilds/${guild}/channels`,
+        {
+            method: "GET",
+            headers: {
+                Authorization: `Bot ${botToken}`,
+            },
+            next: {
+                revalidate: 30,
+            },
+        }
+    );
+    if (!res.ok) {
+        const err: DiscordError = await res.json();
+
+        throw new Error(err.message ?? "failed to fetch channels");
     }
 
     return await res.json();
