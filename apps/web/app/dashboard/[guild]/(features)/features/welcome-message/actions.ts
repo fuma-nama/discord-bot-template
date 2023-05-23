@@ -19,7 +19,8 @@ export async function disable(guild: string) {
             guild_id: guild,
         },
     });
-    revalidatePath(`/dashboard/${guild}/features/welcome-message`);
+
+    revalidatePage(guild);
 }
 
 export async function save(guild: string, raw: Data) {
@@ -36,5 +37,9 @@ export async function save(guild: string, raw: Data) {
         },
     });
 
+    revalidatePage(guild);
+}
+
+function revalidatePage(guild: string) {
     revalidatePath(`/dashboard/${guild}/features/welcome-message`);
 }
