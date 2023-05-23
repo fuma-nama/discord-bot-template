@@ -11,23 +11,20 @@ import {
 } from "@/components/ui/select";
 import { WelcomeFeature } from "@prisma/client";
 import { Controller, useForm } from "react-hook-form";
-import useSWRMutation from "swr/mutation";
-import { Data } from "./page";
-import { useEffect } from "react";
+import { Data, disable, save } from "./actions";
+import { useEffect, useTransition } from "react";
 
 export function UpdateForm({
     feature,
     channels,
-    submit,
+    guild,
 }: {
     feature: WelcomeFeature;
     channels: GuildChannel[];
-    submit: (data: Data) => Promise<void>;
+    guild: string;
 }) {
-    const mutation = useSWRMutation(
-        "/features/update/welcome-message",
-        (_, { arg }: { arg: Data }) => submit(arg)
-    );
+    const [isPending, startTransition] = useTransition();
+
     const { control, register, formState, reset, handleSubmit } = useForm<Data>(
         {
             defaultValues: {
@@ -45,7 +42,7 @@ export function UpdateForm({
     }, [feature]);
 
     const onSubmit = handleSubmit((v) => {
-        return mutation.trigger(v);
+        return startTransition(() => save(guild, v));
     });
 
     return (
@@ -104,25 +101,35 @@ export function UpdateForm({
                 />
             </fieldset>
             <div className="mt-auto flex flex-row gap-4 justify-end">
-                <Button
-                    className="w-24"
-                    disabled={!formState.isDirty || mutation.isMutating}
-                >
-                    {mutation.isMutating ? "Saving..." : "Save"}
-                </Button>
-                <Button
-                    className="w-24"
-                    variant="secondary"
-                    disabled={!formState.isDirty}
-                    onClick={() => {
-                        reset({
-                            channel: feature.channel_id,
-                            message: feature.message,
-                        });
-                    }}
-                >
-                    Discard
-                </Button>
+                {formState.isDirty ? (
+                    <>
+                        <Button className="w-24" disabled={isPending}>
+                            {isPending ? "Saving..." : "Save"}
+                        </Button>
+                        <Button
+                            key="disable"
+                            className="w-24"
+                            variant="secondary"
+                            onClick={() => {
+                                reset({
+                                    channel: feature.channel_id,
+                                    message: feature.message,
+                                });
+                            }}
+                        >
+                            Discard
+                        </Button>
+                    </>
+                ) : (
+                    <Button
+                        key="disable"
+                        className="w-24"
+                        variant="destructive"
+                        onClick={() => startTransition(() => disable(guild))}
+                    >
+                        Disable
+                    </Button>
+                )}
             </div>
         </form>
     );
