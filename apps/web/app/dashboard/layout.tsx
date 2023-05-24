@@ -17,7 +17,7 @@ import { Logo } from "@/components/icons/logo";
 import { MenuIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { invite_url } from "@/utils/shared";
-import { ThemeSwitchItem } from "./theme-switch";
+import { ThemeSwitchItem } from "@/components/theme-switch";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (
