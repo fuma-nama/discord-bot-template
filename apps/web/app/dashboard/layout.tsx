@@ -106,10 +106,10 @@ async function MenuTrigger() {
                 <DropdownMenuLabel>{user.username}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                    <Link href="/dashboard">Dashboard</Link>
+                    <Link href="/">Home</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                    <Link href="/profile">Profile</Link>
+                    <Link href="/dashboard">Dashboard</Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <ThemeSwitchItem />
