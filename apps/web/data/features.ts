@@ -17,7 +17,7 @@ const features = [
     {
         href: `storage`,
         title: "Storage",
-        body: "Drop down some key notes",
+        body: "Jot down some key notes",
         icon: HardDriveIcon,
     },
     {
