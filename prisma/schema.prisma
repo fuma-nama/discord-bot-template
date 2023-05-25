@@ -17,14 +17,17 @@ model Test {
   value String
 }
 
-
 model WelcomeFeature {
   guild_id String @id
   channel_id String?
   message String @default("Welcome!")
 }
 
+model Settings {
+  guild_id String @id
+  prefix String @default("/")
+}
+
 model StorageFeature {
   guild_id String @id
-
 }
