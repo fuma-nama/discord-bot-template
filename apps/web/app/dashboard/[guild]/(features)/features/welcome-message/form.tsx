@@ -13,6 +13,7 @@ import { WelcomeFeature } from "@prisma/client";
 import { Controller, useForm } from "react-hook-form";
 import { Data, disable, save } from "./actions";
 import { useEffect, useTransition } from "react";
+import { Field } from "@/components/ui/form";
 
 export function UpdateForm({
     feature,
@@ -46,9 +47,14 @@ export function UpdateForm({
     });
 
     return (
-        <form className="flex flex-col gap-4 flex-1" onSubmit={onSubmit}>
-            <fieldset className="space-2">
-                <label className="font-medium text-sm">Channel</label>
+        <form className="flex flex-col mt-4 gap-8 flex-1" onSubmit={onSubmit}>
+            <Field>
+                <Field.Label htmlFor="channel" className="font-semibold">
+                    Channel
+                </Field.Label>
+                <Field.Description>
+                    Text Channel to send the message
+                </Field.Description>
                 <Controller
                     control={control}
                     name="channel"
@@ -89,17 +95,20 @@ export function UpdateForm({
                         </Select>
                     )}
                 />
-            </fieldset>
-            <fieldset className="space-2">
-                <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                </label>
+                <Field.Error>{formState.errors.channel?.message}</Field.Error>
+            </Field>
+            <Field>
+                <Field.Label htmlFor="message">Message</Field.Label>
+                <Field.Description>
+                    What to send when a member is joined
+                </Field.Description>
                 <Textarea
                     id="message"
                     placeholder="Type something here"
                     {...register("message")}
                 />
-            </fieldset>
+                <Field.Error>{formState.errors.message?.message}</Field.Error>
+            </Field>
             <div className="mt-auto flex flex-row gap-4 justify-end">
                 {formState.isDirty ? (
                     <>
