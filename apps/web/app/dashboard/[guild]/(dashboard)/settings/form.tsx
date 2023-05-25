@@ -36,10 +36,7 @@ export function SettingsForm({
     }, [data]);
 
     return (
-        <form
-            className="flex flex-col gap-8 p-4 border-[1px] rounded-lg"
-            onSubmit={onSubmit}
-        >
+        <form className="flex flex-col gap-8 flex-1" onSubmit={onSubmit}>
             <Field>
                 <Field.Label htmlFor="prefix">Command Prefix</Field.Label>
                 <Field.Description>The prefix of commands</Field.Description>
@@ -58,7 +55,7 @@ export function SettingsForm({
                 />
                 <Field.Error>{formState.errors.prefix?.message}</Field.Error>
             </Field>
-            <div className="flex flex-row justify-end gap-3">
+            <div className="flex flex-row justify-end gap-3 mt-auto">
                 <Button disabled={!formState.isDirty || isPending}>Save</Button>
                 {formState.isDirty && (
                     <Button variant="secondary" onClick={onReset}>

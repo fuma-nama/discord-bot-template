@@ -2,15 +2,17 @@ import { cn } from "@/utils/cn";
 import { ComponentPropsWithoutRef } from "react";
 
 export function Field(props: ComponentPropsWithoutRef<"fieldset">) {
-    return <fieldset {...props} />;
+    return (
+        <fieldset
+            {...props}
+            className={cn("p-4 border-[1px] rounded-lg", props.className)}
+        />
+    );
 }
 
 Field.Label = function Label(props: ComponentPropsWithoutRef<"label">) {
     return (
-        <label
-            {...props}
-            className={cn("font-semibold text-sm", props.className)}
-        />
+        <label {...props} className={cn("font-semibold", props.className)} />
     );
 };
 
