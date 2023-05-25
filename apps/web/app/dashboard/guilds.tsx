@@ -60,7 +60,7 @@ function Item({ guild }: { guild: Guild }) {
     return (
         <Link
             href={`/dashboard/${guild.id}`}
-            className="flex flex-col gap-4 rounded-lg p-4 bg-card border-[1px] hover:border-dominant transition-colors"
+            className="flex flex-col gap-4 rounded-lg p-4 bg-card border-[1px] hover:border-primary transition-colors"
         >
             <Icon
                 src={iconUrl(guild, 80)}
