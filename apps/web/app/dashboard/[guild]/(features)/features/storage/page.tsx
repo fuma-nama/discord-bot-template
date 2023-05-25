@@ -35,9 +35,8 @@ export default async function StoragePage({
                 <TableHeader>
                     <TableRow>
                         <TableHead className="w-[100px]">ID</TableHead>
-                        <TableHead>Guild</TableHead>
-                        <TableHead className="text-right">Value</TableHead>
-                        <TableHead />
+                        <TableHead>Value</TableHead>
+                        <TableHead className="text-right" />
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -46,10 +45,7 @@ export default async function StoragePage({
                             <TableCell className="font-medium">
                                 {row.id}
                             </TableCell>
-                            <TableCell>{row.guild_id}</TableCell>
-                            <TableCell className="text-right">
-                                {row.value}
-                            </TableCell>
+                            <TableCell>{row.value}</TableCell>
                             <TableCell className="text-right">
                                 <DeleteButton guild={guild} id={row.id} />
                             </TableCell>
