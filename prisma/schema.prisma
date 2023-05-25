@@ -28,6 +28,11 @@ model Settings {
   prefix String @default("/")
 }
 
+model MusicFeature {
+  guild_id String @id
+  controller_role String?
+}
+
 model StorageFeature {
   guild_id String @id
 }
