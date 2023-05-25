@@ -1,7 +1,20 @@
-export default function SettingsPage() {
-    return (
-        <>
-            <h1 className="text-2xl md:text-4xl font-semibold">Settings</h1>
-        </>
-    );
+import { prisma } from "@/utils/prisma";
+import { SettingsForm } from "./form";
+
+export default async function SettingsPage({
+    params,
+}: {
+    params: { guild: string };
+}) {
+    const settings = await prisma.settings.upsert({
+        create: {
+            guild_id: params.guild,
+        },
+        update: {},
+        where: {
+            guild_id: params.guild,
+        },
+    });
+
+    return <SettingsForm guild={params.guild} data={settings} />;
 }
