@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { fetchGuildInfo, iconUrl } from "@/utils/discord";
+import { fetchGuildInfo } from "@/utils/discord";
+import { iconUrl } from "@/utils/shared";
 import { InvitePanel } from "@/components/invite-panel";
 import { PageTabs } from "./tabs";
 import { Icon } from "@/components/ui/avatar";

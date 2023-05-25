@@ -2,7 +2,8 @@ import features from "@/data/features";
 import { ReactNode } from "react";
 import { SidebarItem } from "./item";
 import Link from "next/link";
-import { fetchGuildInfo, iconUrl } from "@/utils/discord";
+import { fetchGuildInfo } from "@/utils/discord";
+import { iconUrl } from "@/utils/shared";
 import { notFound } from "next/navigation";
 import { Icon } from "@/components/ui/avatar";
 

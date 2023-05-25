@@ -1,6 +1,6 @@
 import { Icon } from "@/components/ui/avatar";
 import { session } from "@/utils/auth/server";
-import { avatarUrl, fetchUserInfo } from "@/utils/discord";
+import { fetchUserInfo } from "@/utils/discord";
 import {
     DropdownMenu,
     DropdownMenuTrigger,
@@ -16,7 +16,7 @@ import { LogoutDropdownMenuItem } from "./logout";
 import { Logo } from "@/components/icons/logo";
 import { MenuIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { invite_url } from "@/utils/shared";
+import { avatarUrl, invite_url } from "@/utils/shared";
 import { ThemeSwitchItem } from "@/components/theme-switch";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
