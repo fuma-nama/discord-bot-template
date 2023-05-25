@@ -28,6 +28,13 @@ export type GuildWithCounts = Guild & {
     approximate_member_count: number;
 };
 
+export type Role = {
+    id: string;
+    name: string;
+    color: number;
+    position: number;
+};
+
 export enum PermissionFlags {
     CREATE_INSTANT_INVITE = 1 << 0,
     KICK_MEMBERS = 1 << 1,
@@ -185,22 +192,27 @@ export async function fetchGuildChannels(
     return await res.json();
 }
 
-export function iconUrl(guild: Guild, size: number = 512) {
-    return guild.icon != null
-        ? `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}?size=${size}`
-        : null;
-}
+export async function fetchGuildRoles(
+    botToken: string,
+    guild: string
+): Promise<Role[]> {
+    const res = await fetch(
+        `https://discord.com/api/v9/guilds/${guild}/roles`,
+        {
+            method: "GET",
+            headers: {
+                Authorization: `Bot ${botToken}`,
+            },
+            next: {
+                revalidate: 30,
+            },
+        }
+    );
+    if (!res.ok) {
+        const err: DiscordError = await res.json();
 
-export function avatarUrl(user: UserInfo, size: number = 512) {
-    return user.avatar != null
-        ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}?size=${size}`
-        : null;
-}
+        throw new Error(err.message ?? "failed to fetch channels");
+    }
 
-export function bannerUrl(
-    id: string,
-    banner: string,
-    size: number = 1024
-): string {
-    return `https://cdn.discordapp.com/banners/${id}/${banner}?size=${size}`;
+    return await res.json();
 }
