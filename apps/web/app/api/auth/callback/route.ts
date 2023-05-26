@@ -57,6 +57,8 @@ export async function GET(request: NextRequest) {
     //use jwt-token for extra security and parameters
     res.cookies.set(token_cookie, data.access_token, {
         httpOnly: true,
+        //minus 12 hours
+        maxAge: data.expires_in - 60 * 60 * 12,
         secure: process.env.NODE_ENV === "production",
     });
 
