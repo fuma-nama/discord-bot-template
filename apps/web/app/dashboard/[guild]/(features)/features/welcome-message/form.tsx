@@ -62,6 +62,7 @@ export function UpdateForm({
                         <Select
                             value={field.value ?? ""}
                             onValueChange={field.onChange}
+                            name={field.name}
                         >
                             <SelectTrigger
                                 id="channel"
@@ -116,9 +117,9 @@ export function UpdateForm({
                             {isPending ? "Saving..." : "Save"}
                         </Button>
                         <Button
-                            key="disable"
                             className="w-24"
                             variant="secondary"
+                            type="button"
                             onClick={() => {
                                 reset({
                                     channel: feature.channel_id,
@@ -131,7 +132,6 @@ export function UpdateForm({
                     </>
                 ) : (
                     <Button
-                        key="disable"
                         className="w-24"
                         variant="destructive"
                         onClick={() => startTransition(() => disable(guild))}
