@@ -19,7 +19,6 @@ export function PageTabs() {
             <TabsList className="max-w-fit">
                 <TabsTrigger value="">Overview</TabsTrigger>
                 <TabsTrigger value="features">Features</TabsTrigger>
-                <TabsTrigger value="billing">Billing</TabsTrigger>
                 <TabsTrigger value="settings">Settings</TabsTrigger>
             </TabsList>
         </Tabs>
