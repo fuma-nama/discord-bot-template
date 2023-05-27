@@ -2,13 +2,14 @@
 import { cn } from "@/utils/cn";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ReactNode } from "react";
 
 export function SidebarItem({
     href,
     children,
 }: {
     href: string;
-    children: string;
+    children: ReactNode;
 }) {
     const path = usePathname();
 
@@ -16,7 +17,7 @@ export function SidebarItem({
         <Link
             href={href}
             className={cn(
-                "text-sm text-muted-foreground",
+                "flex flex-row gap-3 items-center hover:text-primary rounded-lg text-sm text-muted-foreground",
                 path === href && "text-foreground font-medium"
             )}
         >

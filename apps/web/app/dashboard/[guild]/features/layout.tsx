@@ -23,14 +23,21 @@ export default function FeatureLayout({
                 >{`<- Back`}</Link>
                 {/* @ts-expect-error Server Component */}
                 <GuildInfo guild={params.guild} />
-                {features.map((feature) => (
-                    <SidebarItem
-                        key={feature.href}
-                        href={`/dashboard/${params.guild}/features/${feature.href}`}
-                    >
-                        {feature.title}
-                    </SidebarItem>
-                ))}
+                {features.map((feature) => {
+                    const Icon = feature.icon;
+
+                    return (
+                        <SidebarItem
+                            key={feature.href}
+                            href={`/dashboard/${params.guild}/features/${feature.href}`}
+                        >
+                            <div className="border-[1px] rounded-lg p-1 shadow-md">
+                                <Icon className="w-4 h-4" />
+                            </div>
+                            {feature.title}
+                        </SidebarItem>
+                    );
+                })}
             </aside>
             <div className="md:px-8 md:py-4 flex flex-col gap-4">
                 <Link
