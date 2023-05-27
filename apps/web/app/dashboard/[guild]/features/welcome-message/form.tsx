@@ -132,6 +132,8 @@ export function UpdateForm({
                     </>
                 ) : (
                     <Button
+                        key="disable"
+                        type="button"
                         className="w-24"
                         variant="destructive"
                         onClick={() => startTransition(() => disable(guild))}
