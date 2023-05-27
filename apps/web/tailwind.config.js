@@ -49,10 +49,6 @@ module.exports = {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
-                dominant: {
-                    DEFAULT: "hsl(var(--dominant))",
-                    foreground: "hsl(var(--dominant-foreground))",
-                },
             },
             borderRadius: {
                 lg: "var(--radius)",
