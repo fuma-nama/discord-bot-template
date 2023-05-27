@@ -6,7 +6,7 @@ export function Chart() {
         <ResponsiveContainer className="w-full" height={350}>
             <BarChart
                 margin={{
-                    left: -20,
+                    left: -30,
                 }}
                 data={[
                     {
