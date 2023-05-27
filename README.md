@@ -8,8 +8,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 -   [x] Node.js Discord Bot with discord-fp
 -   [x] Kafka Event Streaming
--   [ ] Dashboard using Next.js App Router (🚧 Work in progress)
--   [ ] Documentation Website
+-   [x] Dashboard using Next.js App Router
+-   [ ] Documentation Website (Work in progress)
 
 ## Scalability
 
