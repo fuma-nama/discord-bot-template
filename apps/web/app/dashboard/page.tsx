@@ -3,6 +3,9 @@ import { fetchGuilds } from "@/utils/discord";
 import { Suspense } from "react";
 import { GuildsProvider, GuildsContent } from "./guilds";
 
+/**
+ * Home Page
+ */
 export default function DashboardPage() {
     const data = session();
 

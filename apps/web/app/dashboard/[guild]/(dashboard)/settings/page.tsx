@@ -1,6 +1,9 @@
 import { prisma } from "@/utils/prisma";
 import { SettingsForm } from "./form";
 
+/**
+ * Example settings page
+ */
 export default async function SettingsPage({
     params,
 }: {

@@ -7,6 +7,9 @@ import {
     SearchIcon,
 } from "lucide-react";
 
+/**
+ * Features Configuraton
+ */
 const features = [
     {
         href: `welcome-message`,

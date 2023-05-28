@@ -7,6 +7,9 @@ import { iconUrl } from "@/utils/shared";
 import { notFound } from "next/navigation";
 import { Icon } from "@/components/ui/avatar";
 
+/**
+ * Feature configuration Layout
+ */
 export default function FeatureLayout({
     params,
     children,

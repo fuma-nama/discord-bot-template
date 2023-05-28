@@ -5,6 +5,9 @@ import Link from "next/link";
 import { ReactNode } from "react";
 const formatter = Intl.NumberFormat();
 
+/**
+ * Guild Overview
+ */
 export default async function GuildPage({
     params,
 }: {

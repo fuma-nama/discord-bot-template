@@ -1,19 +1,15 @@
 import features from "@/data/features";
-import { prisma } from "@/utils/prisma";
 import { LucideIcon } from "lucide-react";
 import Link from "next/link";
 
+/**
+ * List of Features
+ */
 export default async function FeaturesPage({
     params,
 }: {
     params: { guild: string };
 }) {
-    await prisma.storageFeature.findFirst({
-        where: { guild_id: params.guild },
-    });
-    await prisma.welcomeFeature.findFirst({
-        where: { guild_id: params.guild },
-    });
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((feature) => (
