@@ -11,6 +11,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 -   [x] Dashboard using Next.js App Router
 -   [ ] Documentation Website (Work in progress)
 
+## Project Structure
+
+This project is using Turborepo, you can learn more about it from their [documentation](https://turbo.build/).
+
+| Package                          | Description         |
+| -------------------------------- | ------------------- |
+| [apps/web](./apps/web/README.md) | Web App             |
+| [apps/bot](./apps/bot/README.md) | Discord Bot         |
+| packages/config                  | Configuration Files |
+
 ## Scalability
 
 ### Don't depend on "Server"
