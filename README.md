@@ -21,6 +21,26 @@ This project is using Turborepo, you can learn more about it from their [documen
 | [apps/bot](./apps/bot/README.md) | Discord Bot         |
 | packages/config                  | Configuration Files |
 
+## Getting Started
+
+You can run the project in development mode
+
+```
+pnpm run dev
+```
+
+Production Build
+
+```
+pnpm run build
+```
+
+Lint
+
+```
+pnpm run lint
+```
+
 ## Scalability
 
 ### Don't depend on "Server"
