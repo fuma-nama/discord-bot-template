@@ -1,0 +1,30 @@
+{
+    "folders": [
+        {
+            "name": "root",
+            "path": "../"
+        },
+        {
+            "name": "packages/config",
+            "path": "../packages/config"
+        },
+        {
+            "name": "apps/bot",
+            "path": "../apps/bot"
+        },
+        {
+            "name": "apps/web",
+            "path": "../apps/web"
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "node_modules/": true,
+            ".turbo/": true,
+            ".next/": true,
+            "packages/": true,
+            "apps/": true
+        },
+        "typescript.tsdk": "../apps/web/node_modules/typescript/lib"
+    }
+}
