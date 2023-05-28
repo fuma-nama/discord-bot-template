@@ -19,10 +19,6 @@ pnpm run build
 
 Notice that this project uses Turborepo, you can learn more about it from their [documentation](https://turbo.build/)
 
-### Discord OAuth
-
-Add `https://<app_url>/api/auth/callback` as a Redirect Uri in Developer Portal.
-
 ## Project Structure
 
 Learn more from [Next.js Docs](https://nextjs.org/docs/getting-started/project-structure).

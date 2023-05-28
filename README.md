@@ -35,6 +35,10 @@ Production Build
 pnpm run build
 ```
 
+### Discord OAuth
+
+Add `https://<app_url>/api/auth/callback` as a Redirect Uri in Developer Portal.
+
 ### Environment Variables
 
 Required variables are listed in [.env.example](/.env.example).
