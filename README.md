@@ -35,11 +35,13 @@ Production Build
 pnpm run build
 ```
 
-Lint
+### Environment Variables
 
-```
-pnpm run lint
-```
+Required variables are listed in [.env.example](/.env.example).
+
+This project uses [Upstash Kafka](https://upstash.com/), you can register an account and get required credentials there.
+
+Notice that you need to update Prisma schema as your database change.
 
 ## Scalability
 
