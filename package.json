@@ -7,7 +7,8 @@
         "build": "dotenv -- turbo build",
         "start": "dotenv -- turbo start",
         "lint": "turbo lint",
-        "db:push": "dotenv -- prisma db push"
+        "db:push": "dotenv -- prisma db push",
+        "postinstall": "dotenv -- prisma generate"
     },
     "devDependencies": {
         "dotenv-cli": "^7.2.1",
