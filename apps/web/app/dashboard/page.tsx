@@ -2,6 +2,12 @@ import { session } from "@/utils/auth/server";
 import { fetchGuilds } from "@/utils/discord";
 import { Suspense } from "react";
 import { GuildsProvider, GuildsContent } from "./guilds";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Dashboard",
+    description: "Select your server and getting started",
+};
 
 /**
  * Home Page

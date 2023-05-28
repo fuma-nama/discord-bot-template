@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 import { revalidatePath } from "next/cache";
 import { ChannelTypes, fetchGuildChannels } from "@/utils/discord";
 
+export const metadata = {
+    title: "Welcome Message",
+};
+
 export default async function WelcomeMessage({
     params: { guild },
 }: {
