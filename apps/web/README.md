@@ -19,6 +19,25 @@ pnpm run build
 
 Notice that this project uses Turborepo, you can learn more about it from their [documentation](https://turbo.build/)
 
+### Discord OAuth
+
+Add `https://<app_url>/api/auth/callback` as a Redirect Uri in Developer Portal.
+
+## Project Structure
+
+Learn more from [Next.js Docs](https://nextjs.org/docs/getting-started/project-structure).
+
+| Path                    | Description                           |
+| ----------------------- | ------------------------------------- |
+| ./components            | UI Components                         |
+| ./app                   | Pages & Route Handlers                |
+| ./app/(info)            | Static Pages (Home & Login Page)      |
+| ./app/dashboard         | App Dashboard Pages                   |
+| ./app/api               | API Handlers                          |
+| ./app/api/auth/callback | Discord OAuth2 callback handler       |
+| ./public                | Pubilc Assets                         |
+| ./utils                 | Utilities, 3rd party services clients |
+
 ## Next.js
 
 This project is built with [Next.js App Router](https://nextjs.org/docs), and deeply using Server Side Rendering. It might be essential to learn more about it.
