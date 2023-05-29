@@ -21,7 +21,7 @@ export function ThemeSwitchItem() {
         <div className="flex flex-row gap-8 px-2 py-1.5 text-sm outline-none items-center">
             <p className="mr-auto">Theme</p>
             <Select value={theme} onValueChange={setTheme}>
-                <SelectTrigger className="w-[80px] h-7 text-foreground text-xs">
+                <SelectTrigger className="w-24 h-7 text-foreground text-xs">
                     <SelectValue placeholder="Select a theme" />
                 </SelectTrigger>
 
