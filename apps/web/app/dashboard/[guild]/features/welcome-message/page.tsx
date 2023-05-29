@@ -3,6 +3,7 @@ import { prisma } from "@/utils/prisma";
 import { Button } from "@/components/ui/button";
 import { revalidatePath } from "next/cache";
 import { ChannelTypes, fetchGuildChannels } from "@/utils/discord";
+import { checkPermissions } from "@/utils/actions/permissions";
 
 export const metadata = {
     title: "Welcome Message",
@@ -22,6 +23,7 @@ export default async function WelcomeMessage({
     async function enable() {
         "use server";
 
+        await checkPermissions(guild);
         await prisma.welcomeFeature.create({
             data: {
                 guild_id: guild,

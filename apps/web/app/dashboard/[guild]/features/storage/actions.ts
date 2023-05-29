@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/utils/prisma";
 import { z } from "zod";
+import { checkPermissions } from "@/utils/actions/permissions";
 
 const schema = z.object({
     message: z.string(),
@@ -11,8 +12,9 @@ const schema = z.object({
 export type Data = z.infer<typeof schema>;
 
 export async function insert(guild: string, raw: Data) {
-    const data = schema.parse(raw);
+    await checkPermissions(guild);
 
+    const data = schema.parse(raw);
     await prisma.test.create({
         data: {
             guild_id: guild,
@@ -24,6 +26,8 @@ export async function insert(guild: string, raw: Data) {
 }
 
 export async function deleteItem(guild: string, id: number) {
+    await checkPermissions(guild);
+
     await prisma.test.deleteMany({
         where: {
             guild_id: guild,

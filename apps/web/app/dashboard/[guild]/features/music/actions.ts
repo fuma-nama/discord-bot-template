@@ -1,5 +1,6 @@
 "use server";
 
+import { checkPermissions } from "@/utils/actions/permissions";
 import { prisma } from "@/utils/prisma";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
@@ -13,6 +14,7 @@ const schema = z
 export type Data = z.infer<typeof schema>;
 
 export async function save(guild: string, raw: Data) {
+    await checkPermissions(guild);
     const data = schema.parse(raw);
 
     await prisma.musicFeature.upsert({
