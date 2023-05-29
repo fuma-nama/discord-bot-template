@@ -43,7 +43,7 @@ export function UpdateForm({
     }, [feature]);
 
     const onSubmit = handleSubmit((v) => {
-        return startTransition(() => save(guild, v));
+        return startTransition(() => save(guild, v).then(() => reset(v)));
     });
 
     return (
