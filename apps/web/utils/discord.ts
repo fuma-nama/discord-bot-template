@@ -106,12 +106,12 @@ export async function fetchUserInfo(accessToken: string) {
             Authorization: `Bearer ${accessToken}`,
         },
         next: {
-            revalidate: 60,
+            revalidate: 60 * 30,
         },
     });
 
     if (!res.ok) {
-        throw new Error(await res.text());
+        throw createDiscordError(await res.json(), "failed to fetch user info");
     }
 
     return (await res.json()) as UserInfo;
@@ -121,7 +121,7 @@ export async function fetchGuilds(accessToken: string) {
     const res = await fetch("https://discord.com/api/v9/users/@me/guilds", {
         method: "GET",
         next: {
-            revalidate: 10,
+            revalidate: 30,
         },
         headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -129,7 +129,7 @@ export async function fetchGuilds(accessToken: string) {
     });
 
     if (!res.ok) {
-        throw new Error(await res.text());
+        throw createDiscordError(await res.json(), "failed to fetch guilds");
     }
 
     return (await res.json()) as Guild[];
@@ -161,7 +161,7 @@ export async function fetchGuildInfo<Counts extends boolean = false>(
         //bot hadn't join the guild
         if (data.code === 10004) return null;
 
-        throw new Error(data.message);
+        throw createDiscordError(data, "failed to fetch guild info");
     }
 
     return await res.json();
@@ -184,9 +184,7 @@ export async function fetchGuildChannels(
         }
     );
     if (!res.ok) {
-        const err: DiscordError = await res.json();
-
-        throw new Error(err.message ?? "failed to fetch channels");
+        throw createDiscordError(await res.json(), "failed to fetch channels");
     }
 
     return await res.json();
@@ -208,11 +206,16 @@ export async function fetchGuildRoles(
             },
         }
     );
-    if (!res.ok) {
-        const err: DiscordError = await res.json();
 
-        throw new Error(err.message ?? "failed to fetch channels");
+    if (!res.ok) {
+        throw createDiscordError(await res.json(), "failed to fetch roles");
     }
 
     return await res.json();
+}
+
+function createDiscordError(res: any, defaultMessage: string) {
+    const err: DiscordError = res;
+
+    return new Error(err.message ?? defaultMessage);
 }
