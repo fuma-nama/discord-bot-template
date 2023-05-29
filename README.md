@@ -47,6 +47,23 @@ This project uses [Upstash Kafka](https://upstash.com/), you can register an acc
 
 Notice that you need to update Prisma schema as your database change.
 
+## Security
+
+It'll checks for user permissions before doing any operations.
+
+You can enable permission checking in a Server Action or Route Handler by doing:
+
+```ts
+import { checkPermissions } from "@/utils/actions/permissions";
+
+export async function myAction() {
+    "use server";
+
+    //notice that it is an async function
+    await checkPermissions();
+}
+```
+
 ## Scalability
 
 ### Don't depend on "Server"

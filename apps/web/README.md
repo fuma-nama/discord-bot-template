@@ -19,6 +19,17 @@ pnpm run build
 
 Notice that this project uses Turborepo, you can learn more about it from their [documentation](https://turbo.build/)
 
+## Examples
+
+The template includes some implemented example features, they are:
+
+| Feature         | Description                                     |
+| --------------- | ----------------------------------------------- |
+| Storage         | A simple storage that stores keynotes           |
+| Welcome Message | Send a message when a new user joined the guild |
+
+The other features are showcases for different components such as Chart, Select and Form.
+
 ## Project Structure
 
 Learn more from [Next.js Docs](https://nextjs.org/docs/getting-started/project-structure).
@@ -26,6 +37,7 @@ Learn more from [Next.js Docs](https://nextjs.org/docs/getting-started/project-s
 | Path                    | Description                           |
 | ----------------------- | ------------------------------------- |
 | ./components            | UI Components                         |
+| ./data/features.ts      | Information of features               |
 | ./app                   | Pages & Route Handlers                |
 | ./app/(info)            | Static Pages (Home & Login Page)      |
 | ./app/dashboard         | App Dashboard Pages                   |
