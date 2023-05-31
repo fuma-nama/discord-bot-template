@@ -1,8 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🚧 This project is currently in active development
 
 # Discord Bot Template
 
-🚧 This project is currently in active development
+The powerful discord bot template with Next.js Dashboard and Discord.js v14.
 
 ## Features
 
@@ -11,25 +11,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 -   [x] Dashboard using Next.js App Router
 -   [ ] Documentation Website (Work in progress)
 
-## Project Structure
+## Quick Start
 
-This project is using Turborepo, you can learn more about it from their [documentation](https://turbo.build/).
-
-| Package                          | Description         |
-| -------------------------------- | ------------------- |
-| [apps/web](./apps/web/README.md) | Web App             |
-| [apps/bot](./apps/bot/README.md) | Discord Bot         |
-| packages/config                  | Configuration Files |
-
-## Getting Started
-
-You can run the project in development mode
+This project is a monorepo, You can run the project in development mode:
 
 ```
 pnpm run dev
 ```
 
-Production Build
+Create Production Build:
 
 ```
 pnpm run build
@@ -46,6 +36,30 @@ Required variables are listed in [.env.example](/.env.example).
 This project uses [Upstash Kafka](https://upstash.com/), you can register an account and get required credentials there.
 
 Notice that you need to update Prisma schema as your database change.
+
+### Database
+
+This project uses [Prisma ORM](https://www.prisma.io/), you may migrate to other ORMs such as Drizzle ORM if you wanted.
+
+Push database changes:
+
+```
+pnpm run db:push
+```
+
+Please make sure all environment variables are all settled before running the command.
+
+Learn More about Prisma ORM from their [documentation](https://www.prisma.io/docs/getting-started/quickstart).
+
+## Project Structure
+
+This project is using Turborepo, you can learn more about it from their [documentation](https://turbo.build/).
+
+| Package                          | Description         |
+| -------------------------------- | ------------------- |
+| [apps/web](./apps/web/README.md) | Web App             |
+| [apps/bot](./apps/bot/README.md) | Discord Bot         |
+| packages/config                  | Configuration Files |
 
 ## Security
 
@@ -77,3 +91,9 @@ This brings a faster load speed and more better stability because the dashboad w
 The dashboard is built for serverless, you are able to deploy it to any serverless hosting platforms such as Vercel, Azure and AWS.
 
 Notice that the Discord bot server can only be deployed to traditional Node.js Server hosting services, serverless environment is incompatible.
+
+## Typesafe
+
+Typesafe is the key to maintain a large codebase. Although Javascript + JSDocs is perfect for libraries, it's still recommended to use Typescript for writing applications.
+
+This template is fully written in Typescript, all the type errors will be reported at build time.
