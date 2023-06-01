@@ -1,4 +1,4 @@
-import { cn } from "@/utils/cn";
+import { cn } from "../utils/cn";
 import { ComponentPropsWithoutRef } from "react";
 
 export function Field(props: ComponentPropsWithoutRef<"fieldset">) {
