@@ -111,9 +111,6 @@ importers:
       rehype-slug:
         specifier: ^5.1.0
         version: 5.1.0
-      remark:
-        specifier: ^14.0.2
-        version: 14.0.2
       remark-gfm:
         specifier: ^3.0.1
         version: 3.0.1
@@ -126,9 +123,6 @@ importers:
       ui:
         specifier: workspace:*
         version: link:../../packages/ui
-      unist-util-visit:
-        specifier: ^4.1.2
-        version: 4.1.2
       zod:
         specifier: ^3.21.4
         version: 3.21.4
@@ -159,6 +153,9 @@ importers:
       mdast-util-toc:
         specifier: ^6.1.1
         version: 6.1.1
+      remark:
+        specifier: ^14.0.2
+        version: 14.0.2
       swr:
         specifier: ^2.1.5
         version: 2.1.5(react@18.2.0)
@@ -168,6 +165,9 @@ importers:
       ui:
         specifier: workspace:*
         version: link:../ui
+      unist-util-visit:
+        specifier: ^4.1.2
+        version: 4.1.2
     devDependencies:
       '@types/flexsearch':
         specifier: 0.7.3
