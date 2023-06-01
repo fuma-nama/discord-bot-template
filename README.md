@@ -9,7 +9,7 @@ The powerful discord bot template with Next.js Dashboard and Discord.js v14.
 -   [x] Node.js Discord Bot with discord-fp
 -   [x] Kafka Event Streaming
 -   [x] Dashboard using Next.js App Router
--   [ ] Documentation Website (Work in progress)
+-   [x] Documentation Website
 
 ## Quick Start
 
@@ -55,11 +55,14 @@ Learn More about Prisma ORM from their [documentation](https://www.prisma.io/doc
 
 This project is using Turborepo, you can learn more about it from their [documentation](https://turbo.build/).
 
-| Package                          | Description         |
-| -------------------------------- | ------------------- |
-| [apps/web](./apps/web/README.md) | Web App             |
-| [apps/bot](./apps/bot/README.md) | Discord Bot         |
-| packages/config                  | Configuration Files |
+| Package                                    | Description                        |
+| ------------------------------------------ | ---------------------------------- |
+| [apps/web](./apps/web/README.md)           | Web App + Documentation (Frontend) |
+| [apps/bot](./apps/bot/README.md)           | Discord Bot                        |
+| [packages/docs](./packages/docs/README.md) | Documentation (Content + Utils)    |
+| packages/config                            | Configuration Files                |
+
+_Learn more about these packages by reading their README.md file_
 
 ## Security
 
