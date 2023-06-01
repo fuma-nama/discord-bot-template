@@ -1,5 +1,5 @@
 "use client";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "ui/components/button";
 import { cn } from "@/utils/cn";
 import { invite_url } from "@/utils/shared";
 import useSWR from "swr";

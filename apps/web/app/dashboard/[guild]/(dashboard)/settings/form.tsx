@@ -1,11 +1,11 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "ui/components/button";
+import { Input } from "ui/components/input";
 import { useEffect, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { Data, updateSettings } from "./actions";
 import { Settings } from "@prisma/client";
-import { Field } from "@/components/ui/form";
+import { Field } from "ui/components/form";
 
 export function SettingsForm({
     guild,

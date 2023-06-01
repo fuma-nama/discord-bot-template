@@ -1,4 +1,3 @@
-import { Logo } from "@/components/icons/logo";
 import Link from "next/link";
 import { ReactNode } from "react";
 import {
@@ -7,9 +6,9 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { MenuIcon } from "lucide-react";
-import { ThemeSwitchItem } from "@/components/theme-switch";
+} from "ui/components/dropdown-menu";
+import { Logo, MenuIcon } from "ui/icons";
+import { ThemeSwitchItem } from "@/components/ui/theme-switch";
 
 export default function InfoLayout({ children }: { children: ReactNode }) {
     return (
@@ -26,7 +25,13 @@ function Navbar() {
             <div className="container flex flex-row gap-8 items-center">
                 <Link href="/" className="flex flex-row gap-3 items-center">
                     <Logo className="w-6 h-6" />
-                    <p className="font-bold mr-auto">Discord Bot</p>
+                    <p className="font-bold">Discord Bot</p>
+                </Link>
+                <Link
+                    href="/docs"
+                    className="flex flex-row gap-3 items-center text-muted-foreground font-medium text-sm"
+                >
+                    Documentation
                 </Link>
                 <Trigger />
             </div>
@@ -41,6 +46,9 @@ function Trigger() {
                 <MenuIcon className="w-6 h-6" />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
+                <DropdownMenuItem asChild>
+                    <Link href="/docs">Documentation</Link>
+                </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                     <Link href="/dashboard">Dashboard</Link>
                 </DropdownMenuItem>

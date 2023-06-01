@@ -1,5 +1,5 @@
 "use client";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "ui/components/tabs";
 import { useParams, usePathname, useRouter } from "next/navigation";
 
 export function PageTabs() {

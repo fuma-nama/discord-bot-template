@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "ui/components/button";
+import { Textarea } from "ui/components/textarea";
 import { GuildChannel } from "@/utils/discord";
 import {
     Select,
@@ -8,12 +8,12 @@ import {
     SelectValue,
     SelectContent,
     SelectItem,
-} from "@/components/ui/select";
+} from "ui/components/select";
 import { WelcomeFeature } from "@prisma/client";
 import { Controller, useForm } from "react-hook-form";
 import { Data, disable, save } from "./actions";
 import { useEffect, useTransition } from "react";
-import { Field } from "@/components/ui/form";
+import { Field } from "ui/components/form";
 
 export function UpdateForm({
     feature,

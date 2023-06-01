@@ -5,7 +5,7 @@ import Link from "next/link";
 import { fetchGuildInfo } from "@/utils/discord";
 import { iconUrl } from "@/utils/shared";
 import { notFound } from "next/navigation";
-import { Icon } from "@/components/ui/avatar";
+import { Icon } from "ui/components/avatar";
 
 /**
  * Feature configuration Layout

@@ -1,9 +1,9 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { Button } from "ui/components/button";
 import { useForm } from "react-hook-form";
 import { Data, insert } from "./actions";
 import { useTransition } from "react";
-import { Input } from "@/components/ui/input";
+import { Input } from "ui/components/input";
 
 export function StorageForm({ guild }: { guild: string }) {
     const [isPending, startTransition] = useTransition();

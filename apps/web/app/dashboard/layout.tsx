@@ -1,4 +1,4 @@
-import { Icon } from "@/components/ui/avatar";
+import { Icon } from "ui/components/avatar";
 import { session } from "@/utils/auth/server";
 import { fetchUserInfo } from "@/utils/discord";
 import {
@@ -8,16 +8,15 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
+} from "ui/components/dropdown-menu";
 import { ReactNode, Suspense } from "react";
 import Link from "next/link";
 import { logoutAction } from "@/utils/auth/logout";
 import { LogoutDropdownMenuItem } from "./logout";
-import { Logo } from "@/components/icons/logo";
-import { MenuIcon } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
+import { Logo, MenuIcon } from "ui/icons";
+import { Separator } from "ui/components/separator";
 import { avatarUrl, invite_url } from "@/utils/shared";
-import { ThemeSwitchItem } from "@/components/theme-switch";
+import { ThemeSwitchItem } from "@/components/ui/theme-switch";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (

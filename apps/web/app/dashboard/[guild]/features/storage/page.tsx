@@ -6,7 +6,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table";
+} from "ui/components/table";
 import { StorageForm } from "./form";
 import { prisma } from "@/utils/prisma";
 import { DeleteButton } from "./del-button";

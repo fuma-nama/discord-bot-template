@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/utils/cn";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "ui/components/button";
 import clsx from "clsx";
 import { invite_url } from "@/utils/shared";
 

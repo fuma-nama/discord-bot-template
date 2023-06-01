@@ -1,13 +1,13 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Field } from "@/components/ui/form";
+import { Button } from "ui/components/button";
+import { Field } from "ui/components/form";
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
+} from "ui/components/select";
 import { Role } from "@/utils/discord";
 import { Controller, useForm } from "react-hook-form";
 import { Data, save } from "./actions";

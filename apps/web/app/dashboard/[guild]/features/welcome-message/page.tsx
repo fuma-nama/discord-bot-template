@@ -1,6 +1,6 @@
 import { UpdateForm } from "./form";
 import { prisma } from "@/utils/prisma";
-import { Button } from "@/components/ui/button";
+import { Button } from "ui/components/button";
 import { revalidatePath } from "next/cache";
 import { ChannelTypes, fetchGuildChannels } from "@/utils/discord";
 import { checkPermissions } from "@/utils/actions/permissions";

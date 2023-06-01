@@ -1,7 +1,7 @@
 "use client";
-import { Icon } from "@/components/ui/avatar";
-import { buttonVariants } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Icon } from "ui/components/avatar";
+import { buttonVariants } from "ui/components/button";
+import { Input } from "ui/components/input";
 import { cn } from "@/utils/cn";
 import { Guild, PermissionFlags } from "@/utils/discord";
 import { iconUrl, invite_url } from "@/utils/shared";

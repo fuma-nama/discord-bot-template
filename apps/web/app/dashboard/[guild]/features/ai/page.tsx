@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "ui/components/button";
 
 export default function AIPage() {
     return (

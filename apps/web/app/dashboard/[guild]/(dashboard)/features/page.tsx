@@ -1,5 +1,5 @@
 import features from "@/data/features";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon } from "ui/icons";
 import Link from "next/link";
 
 /**

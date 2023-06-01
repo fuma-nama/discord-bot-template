@@ -1,4 +1,4 @@
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "ui/components/button";
 import { getLoginUrl } from "@/utils/auth/client";
 import { cn } from "@/utils/cn";
 import Link from "next/link";

@@ -3,7 +3,7 @@ import { fetchGuildInfo } from "@/utils/discord";
 import { iconUrl } from "@/utils/shared";
 import { InvitePanel } from "@/components/invite-panel";
 import { PageTabs } from "./tabs";
-import { Icon } from "@/components/ui/avatar";
+import { Icon } from "ui/components/avatar";
 
 export default async function GuildLayout({
     children,

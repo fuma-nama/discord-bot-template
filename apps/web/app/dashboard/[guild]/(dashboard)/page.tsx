@@ -1,6 +1,6 @@
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "ui/components/button";
 import { prisma } from "@/utils/prisma";
-import { DatabaseIcon, TimerIcon, HardDriveIcon } from "lucide-react";
+import { DatabaseIcon, TimerIcon, HardDriveIcon } from "ui/icons";
 import Link from "next/link";
 import { ReactNode } from "react";
 const formatter = Intl.NumberFormat();
