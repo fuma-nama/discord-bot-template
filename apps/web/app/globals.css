@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "docs/codeblock.css";
 
 @layer base {
     :root {
