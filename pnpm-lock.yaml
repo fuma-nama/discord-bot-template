@@ -87,9 +87,6 @@ importers:
       lucide-react:
         specifier: ^0.220.0
         version: 0.220.0(react@18.2.0)
-      mdast-util-toc:
-        specifier: ^6.1.1
-        version: 6.1.1
       next:
         specifier: ^13.4.4
         version: 13.4.4(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)
@@ -159,6 +156,9 @@ importers:
       flexsearch:
         specifier: 0.7.21
         version: 0.7.21
+      mdast-util-toc:
+        specifier: ^6.1.1
+        version: 6.1.1
       swr:
         specifier: ^2.1.5
         version: 2.1.5(react@18.2.0)
