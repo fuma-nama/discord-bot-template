@@ -5,7 +5,7 @@ import {
     MessageCircleIcon,
     MusicIcon,
     SearchIcon,
-} from "lucide-react";
+} from "ui/icons";
 
 /**
  * Features Configuraton
