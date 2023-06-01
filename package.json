@@ -7,13 +7,20 @@
         "build": "dotenv -- turbo build",
         "start": "dotenv -- turbo start",
         "lint": "turbo lint",
-        "db:push": "dotenv -- prisma db push",
-        "postinstall": "dotenv -- prisma generate"
+        "db:push": "dotenv -- prisma db push"
     },
     "devDependencies": {
         "dotenv-cli": "^7.2.1",
         "turbo": "^1.9.8",
-        "prisma": "^4.9.0"
+        "prisma": "^4.9.0",
+        "postcss": "8.4.23",
+        "autoprefixer": "10.4.14",
+        "tailwindcss": "3.3.2",
+        "tailwindcss-animate": "^1.0.5",
+        "@tailwindcss/typography": "^0.5.9",
+        "typescript": "5.0.4",
+        "contentlayer": "^0.3.2",
+        "next-contentlayer": "^0.3.2"
     },
     "dependencies": {
         "@prisma/client": "^4.9.0"
