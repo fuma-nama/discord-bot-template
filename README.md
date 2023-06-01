@@ -100,3 +100,15 @@ Notice that the Discord bot server can only be deployed to traditional Node.js S
 Typesafe is the key to maintain a large codebase. Although Javascript + JSDocs is perfect for libraries, it's still recommended to use Typescript for writing applications.
 
 This template is fully written in Typescript, all the type errors will be reported at build time.
+
+## Deploy
+
+It is easy to deploy this application.
+
+### Web App
+
+The fastest way to deploy Next.js applications is to use [Vercel](https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app).
+
+### Bot Server
+
+Any hosting platform that supports Node.js, such as [AWS](https://aws.amazon.com/getting-started/hands-on/deploy-nodejs-web-app/), [Render](https://render.com/), [Railway](https://railway.app/).
