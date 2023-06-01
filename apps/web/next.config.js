@@ -4,9 +4,12 @@ const nextConfig = {
     experimental: {
         serverActions: true,
     },
+    transpilePackages: ["docs", "ui"],
     images: {
         domains: ["cdn.discordapp.com"],
     },
 };
 
-module.exports = nextConfig;
+const { withContentlayer } = require("next-contentlayer");
+
+module.exports = withContentlayer(nextConfig);
