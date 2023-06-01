@@ -45,25 +45,21 @@ export function generateMetadata({ params }: { params: Param }): Metadata {
 
     if (page == null) return {};
 
-    const description =
-        page.description ?? "The hosting platform that supports Nothing";
+    const description = page.description ?? "The powerful discord bot";
 
     return {
         title: page.title,
         description: description,
         openGraph: {
-            url: "https://nodeploy-neon.vercel.app",
+            url: absolute_url,
             title: page.title,
             description: description,
-            images: "/banner.png",
-            siteName: "No Deploy",
         },
         twitter: {
-            card: "summary_large_image",
+            card: "summary",
             creator: "@money_is_shark",
             title: page.title,
             description: description,
-            images: "/banner.png",
         },
         metadataBase: new URL(absolute_url),
     };
