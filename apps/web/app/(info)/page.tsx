@@ -37,6 +37,23 @@ export default async function Home() {
 
             <div className="mt-auto grid text-center lg:grid-cols-3 lg:text-left">
                 <Link
+                    href="/docs"
+                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                >
+                    <h2 className={`mb-3 text-2xl font-semibold`}>
+                        Documentation{" "}
+                        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                            -&gt;
+                        </span>
+                    </h2>
+                    <p
+                        className={`m-0 max-w-[30ch] text-sm text-muted-foreground`}
+                    >
+                        Learn to use Discord Bot for your community
+                    </p>
+                </Link>
+
+                <Link
                     href="/dashboard"
                     className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
                 >
@@ -70,26 +87,6 @@ export default async function Home() {
                         className={`m-0 max-w-[30ch] text-sm text-muted-foreground`}
                     >
                         Invite and explore powerful features of discord bot.
-                    </p>
-                </a>
-
-                <a
-                    href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <h2 className={`mb-3 text-2xl font-semibold`}>
-                        Deploy{" "}
-                        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                            -&gt;
-                        </span>
-                    </h2>
-                    <p
-                        className={`m-0 max-w-[30ch] text-sm text-muted-foreground`}
-                    >
-                        Instantly deploy your Next.js site to a shareable URL
-                        with Vercel.
                     </p>
                 </a>
             </div>
