@@ -2,11 +2,11 @@ import Link from "next/link";
 import { cn } from "@/utils/cn";
 import { buttonVariants } from "ui/components/button";
 import clsx from "clsx";
-import { invite_url } from "@/utils/shared";
+import { discord_url, invite_url } from "@/utils/shared";
 
 export default async function Home() {
     return (
-        <main className="flex flex-1 flex-col items-center py-12 md:p-24 gap-24 container">
+        <main className="flex flex-1 flex-col items-center py-12 md:py-24 gap-24 container">
             <div
                 className={clsx(
                     "z-[2] mt-auto relative flex flex-col gap-2 place-items-center text-center",
@@ -35,13 +35,13 @@ export default async function Home() {
                 </div>
             </div>
 
-            <div className="mt-auto grid text-center lg:grid-cols-3 lg:text-left">
+            <div className="mt-auto grid text-center md:grid-cols-3 md:text-left md:w-full">
                 <Link
                     href="/docs"
                     className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
                 >
                     <h2 className={`mb-3 text-2xl font-semibold`}>
-                        Documentation{" "}
+                        Learn{" "}
                         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                             -&gt;
                         </span>
@@ -49,28 +49,9 @@ export default async function Home() {
                     <p
                         className={`m-0 max-w-[30ch] text-sm text-muted-foreground`}
                     >
-                        Learn to use Discord Bot for your community
+                        Learn to use Discord Bot for your community.
                     </p>
                 </Link>
-
-                <Link
-                    href="/dashboard"
-                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                >
-                    <h2 className={`mb-3 text-2xl font-semibold`}>
-                        Dashboard{" "}
-                        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                            -&gt;
-                        </span>
-                    </h2>
-                    <p
-                        className={`m-0 max-w-[30ch] text-sm text-muted-foreground`}
-                    >
-                        Configure discord bot with the beautiful, user-friendly
-                        dashboard.
-                    </p>
-                </Link>
-
                 <a
                     href={invite_url}
                     className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
@@ -87,6 +68,25 @@ export default async function Home() {
                         className={`m-0 max-w-[30ch] text-sm text-muted-foreground`}
                     >
                         Invite and explore powerful features of discord bot.
+                    </p>
+                </a>
+                <a
+                    href={discord_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                >
+                    <h2 className={`mb-3 text-2xl font-semibold`}>
+                        Support{" "}
+                        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                            -&gt;
+                        </span>
+                    </h2>
+                    <p
+                        className={`m-0 max-w-[30ch] text-sm text-muted-foreground`}
+                    >
+                        Ask for help and Discuss about new features in our
+                        community server.
                     </p>
                 </a>
             </div>

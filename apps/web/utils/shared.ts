@@ -10,6 +10,8 @@ export const absolute_url: string =
 export const token_cookie = "token_cookie";
 
 export const invite_url = process.env.NEXT_PUBLIC_DISCORD_INVITE_URL!;
+export const discord_url = "https://discord.gg/QmgmFhg";
+export const github_url = "https://github.com/SonMooSans/discord-bot-template";
 
 export function iconUrl(guild: Guild, size: number = 512) {
     return guild.icon != null

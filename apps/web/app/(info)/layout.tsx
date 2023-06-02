@@ -9,6 +9,8 @@ import {
 } from "ui/components/dropdown-menu";
 import { Logo, MenuIcon } from "ui/icons";
 import { ThemeSwitchItem } from "@/components/ui/theme-switch";
+import { NavItems } from "./nav-items";
+import { github_url } from "@/utils/shared";
 
 export default function InfoLayout({ children }: { children: ReactNode }) {
     return (
@@ -27,12 +29,7 @@ function Navbar() {
                     <Logo className="w-6 h-6" />
                     <p className="font-bold">Discord Bot</p>
                 </Link>
-                <Link
-                    href="/docs"
-                    className="flex flex-row gap-3 items-center text-muted-foreground font-medium text-sm"
-                >
-                    Documentation
-                </Link>
+                <NavItems />
                 <Trigger />
             </div>
         </nav>
@@ -54,6 +51,16 @@ function Trigger() {
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <ThemeSwitchItem />
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                    <a
+                        href={github_url}
+                        rel="onopener noreferrer"
+                        target="_blank"
+                    >
+                        Github -&gt;
+                    </a>
+                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     );
