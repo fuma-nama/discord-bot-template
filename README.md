@@ -11,6 +11,8 @@ The powerful discord bot template with Next.js Dashboard and Discord.js v14.
 
 ## Quick Start
 
+**Demo:** https://money-shark.vercel.app <br/>
+
 ### Installation
 
 Clone the project:
