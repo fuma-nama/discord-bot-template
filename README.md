@@ -1,5 +1,3 @@
-🚧 This project is currently in active development
-
 # Discord Bot Template
 
 The powerful discord bot template with Next.js Dashboard and Discord.js v14.
@@ -12,6 +10,22 @@ The powerful discord bot template with Next.js Dashboard and Discord.js v14.
 -   [x] Documentation Website
 
 ## Quick Start
+
+### Installation
+
+Clone the project:
+
+```
+git clone https://github.com/SonMooSans/discord-bot-template.git
+```
+
+Install dependencies, notice that this project uses [pNPM](https://pnpm.io/) as package manager:
+
+```
+pnpm i
+```
+
+### Commands
 
 This project is a monorepo, You can run the project in development mode:
 
