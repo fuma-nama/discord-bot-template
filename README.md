@@ -76,6 +76,7 @@ This project is using Turborepo, you can learn more about it from their [documen
 | [apps/web](./apps/web/README.md)           | Web App + Documentation (Frontend) |
 | [apps/bot](./apps/bot/README.md)           | Discord Bot                        |
 | [packages/docs](./packages/docs/README.md) | Documentation (Content + Utils)    |
+| [packages/ui](./packages/ui/)              | Components & Utils                 |
 | packages/config                            | Configuration Files                |
 
 _Learn more about these packages by reading their README.md file_

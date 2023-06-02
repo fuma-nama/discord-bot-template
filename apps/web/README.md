@@ -39,7 +39,7 @@ Learn more from [Next.js Docs](https://nextjs.org/docs/getting-started/project-s
 | ./components            | UI Components                         |
 | ./data/features.ts      | Information of features               |
 | ./app                   | Pages & Route Handlers                |
-| ./app/(info)            | Static Pages (Home & Login Page)      |
+| ./app/(info)            | Static Pages (Home & Documentation)   |
 | ./app/dashboard         | App Dashboard Pages                   |
 | ./app/api               | API Handlers                          |
 | ./app/api/auth/callback | Discord OAuth2 callback handler       |
@@ -55,32 +55,3 @@ This project is built with [Next.js App Router](https://nextjs.org/docs), and de
 it uses Route Handler for data fetching and client mutations.
 
 You are able to use Edge Runtime instead of Serverless Node.js server.
-
-## UI
-
-### Design System
-
-Based on Shadcn UI, you can easily customize the design system.
-
-### Components
-
-Using Radix UI and Tailwind CSS, many components are supported and well-styled:
-
--   Select
--   Dropdown Menu
--   Input (styled)
--   Table
--   Tabs
--   Text Area
--   Button (styled)
--   Slider
-
-Some of the components are based on [Shadcn UI](https://github.com/shadcn/ui).
-
-### Customize
-
-As mentioned above, you may use Shadcn UI for more components.
-
-Modifying those components requires some knowledge about web development, React.js and Tailwind css.
-
-In Tailwind configuration file, you can edit theme configurations such as the color palette, and many others.
