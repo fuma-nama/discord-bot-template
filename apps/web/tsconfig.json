@@ -2,9 +2,10 @@
     "extends": "config/nextjs.json",
     "compilerOptions": {
         "plugins": [{ "name": "next" }],
+        "baseUrl": ".",
         "paths": {
             "@/*": ["./*"],
-            "contentlayer/generated": [".contentlayer/generated"]
+            "contentlayer/generated": ["./.contentlayer/generated"]
         },
         "preserveSymlinks": false
     },
