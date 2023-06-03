@@ -8,5 +8,6 @@ module.exports = {
         "./components/**/*.{ts,tsx}",
         "./app/**/*.{ts,tsx}",
         "../../packages/ui/**/*.{ts,tsx}",
+        "../../packages/docs/**/*.{ts,tsx}",
     ],
 };
