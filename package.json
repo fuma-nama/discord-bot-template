@@ -19,7 +19,7 @@
         "tailwindcss-animate": "^1.0.5",
         "turbo": "^1.9.8",
         "typescript": "5.0.4",
-        "contentlayer": "^0.3.2",
-        "next-contentlayer": "^0.3.2"
+        "contentlayer": "^0.3.3",
+        "next-contentlayer": "^0.3.3"
     }
 }
