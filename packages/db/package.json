@@ -8,8 +8,8 @@
         "./src/index.ts"
     ],
     "scripts": {
-        "dev": "tsup ./index.ts --watch",
-        "build": "tsup ./index.ts",
+        "dev": "tsup ./src/index.ts --watch",
+        "build": "tsup ./src/index.ts",
         "db:push": "drizzle-kit generate:pg && node ./scripts/migrate.mjs"
     },
     "dependencies": {
