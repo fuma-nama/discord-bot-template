@@ -8,19 +8,15 @@ import {
     TableRow,
 } from "ui/components/table";
 import { StorageForm } from "./form";
-import { prisma } from "@/utils/prisma";
 import { DeleteButton } from "./del-button";
+import { db, eq, test } from "db";
 
 export default async function StoragePage({
     params: { guild },
 }: {
     params: { guild: string };
 }) {
-    const records = await prisma.test.findMany({
-        where: {
-            guild_id: guild,
-        },
-    });
+    const records = await db.select().from(test).where(eq(test.guildId, guild));
 
     return (
         <>

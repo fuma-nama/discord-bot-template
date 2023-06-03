@@ -1,4 +1,4 @@
-import { prisma } from "@/utils/prisma";
+import { db, eq, musicFeature } from "db";
 import { Form } from "./form";
 import { fetchGuildRoles } from "@/utils/discord";
 
@@ -7,11 +7,11 @@ export default async function MusicPage({
 }: {
     params: { guild: string };
 }) {
-    const data = await prisma.musicFeature.findUnique({
-        where: {
-            guild_id: params.guild,
-        },
-    });
+    const data = await db
+        .select()
+        .from(musicFeature)
+        .where(eq(musicFeature.guildId, params.guild))
+        .then((res) => res[0]);
 
     const roles = await fetchGuildRoles(
         process.env.DISCORD_BOT_TOKEN!,

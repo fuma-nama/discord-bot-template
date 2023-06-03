@@ -1,6 +1,6 @@
 "use server";
 
-import { prisma } from "@/utils/prisma";
+import { db, eq, settings } from "db";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
@@ -14,19 +14,19 @@ export type Data = z.infer<typeof schema>;
 
 export async function updateSettings(guild: string, raw: Data) {
     const data = schema.parse(raw);
+    const res = await db
+        .update(settings)
+        .set({
+            prefix: data.prefix,
+        })
+        .where(eq(settings.guildId, guild));
 
-    await prisma.settings.upsert({
-        where: {
-            guild_id: guild,
-        },
-        create: {
-            guild_id: guild,
+    if (res.rowCount === 0) {
+        await db.insert(settings).values({
+            guildId: guild,
             prefix: data.prefix,
-        },
-        update: {
-            prefix: data.prefix,
-        },
-    });
+        });
+    }
 
     revalidatePath(`/dashboard/${guild}/settings`);
 }

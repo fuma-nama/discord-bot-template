@@ -1,9 +1,9 @@
 import { UpdateForm } from "./form";
-import { prisma } from "@/utils/prisma";
 import { Button } from "ui/components/button";
 import { revalidatePath } from "next/cache";
 import { ChannelTypes, fetchGuildChannels } from "@/utils/discord";
 import { checkPermissions } from "@/utils/actions/permissions";
+import { db, welcomeFeature, eq } from "db";
 
 export const metadata = {
     title: "Welcome Message",
@@ -14,21 +14,20 @@ export default async function WelcomeMessage({
 }: {
     params: { guild: string };
 }) {
-    const feature = await prisma.welcomeFeature.findUnique({
-        where: {
-            guild_id: guild,
-        },
-    });
+    const feature = await db
+        .select()
+        .from(welcomeFeature)
+        .where(eq(welcomeFeature.guildId, guild))
+        .then((res) => res[0]);
 
     async function enable() {
         "use server";
 
         await checkPermissions(guild);
-        await prisma.welcomeFeature.create({
-            data: {
-                guild_id: guild,
-            },
+        await db.insert(welcomeFeature).values({
+            guildId: guild,
         });
+
         revalidatePath(`/dashboard/${guild}/features/welcome-message`);
     }
 

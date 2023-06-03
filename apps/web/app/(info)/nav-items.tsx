@@ -11,6 +11,7 @@ export function NavItems() {
         <div className="flex flex-row gap-8 items-center text-muted-foreground font-medium text-sm max-md:hidden">
             <Link
                 href="/docs"
+                prefetch={false}
                 className={cn(
                     pathname[1] === "docs" && "text-semibold text-foreground"
                 )}

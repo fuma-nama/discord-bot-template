@@ -1,8 +1,9 @@
 import { buttonVariants } from "ui/components/button";
-import { prisma } from "@/utils/prisma";
 import { DatabaseIcon, TimerIcon, HardDriveIcon } from "ui/icons";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { db, desc, eq, sql, test } from "db";
+
 const formatter = Intl.NumberFormat();
 
 /**
@@ -13,14 +14,19 @@ export default async function GuildPage({
 }: {
     params: { guild: string };
 }) {
-    const last = await prisma.test.findFirst({
-        where: { guild_id: params.guild },
-        orderBy: [{ id: "desc" }],
-    });
+    const last = await db
+        .select()
+        .from(test)
+        .where(eq(test.guildId, params.guild))
+        .orderBy(desc(test.id))
+        .limit(1)
+        .then((res) => res[0]);
 
-    const count = await prisma.test.count({
-        where: { guild_id: params.guild },
-    });
+    const count = await db
+        .select({ count: sql<string>`count(*)` })
+        .from(test)
+        .where(eq(test.guildId, params.guild))
+        .then((res) => (res.length === 0 ? null : Number(res[0].count)));
 
     return (
         <>
@@ -28,7 +34,7 @@ export default async function GuildPage({
                 <Card
                     icon={<DatabaseIcon className="w-10 h-10" />}
                     title="Rows Created"
-                    body={formatter.format(count)}
+                    body={formatter.format(Number(count))}
                 />
                 <Card
                     icon={<TimerIcon className="w-10 h-10" />}

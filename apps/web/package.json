@@ -24,8 +24,9 @@
         "swr": "^2.1.5",
         "tailwind-merge": "^1.12.0",
         "zod": "^3.21.4",
-        "docs": "workspace:*",
+        "db": "workspace:*",
         "ui": "workspace:*",
+        "docs": "workspace:*",
         "rehype-pretty-code": "^0.9.5",
         "rehype-slug": "^5.1.0",
         "remark-gfm": "^3.0.1"
