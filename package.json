@@ -7,7 +7,7 @@
         "build": "dotenv -- turbo build",
         "start": "dotenv -- turbo start",
         "lint": "turbo lint",
-        "db:push": "dotenv -- prisma db push"
+        "db:push": "dotenv -- turbo db:push"
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.9",

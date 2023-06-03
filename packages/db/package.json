@@ -2,9 +2,15 @@
     "name": "db",
     "private": true,
     "main": "./dist/index.js",
-    "types": "./index.ts",
+    "types": "./src/index.ts",
+    "files": [
+        "./dist/index.js",
+        "./src/index.ts"
+    ],
     "scripts": {
-        "dev": "tsup ./index.ts --watch"
+        "dev": "tsup ./index.ts --watch",
+        "build": "tsup ./index.ts",
+        "db:push": "drizzle-kit generate:pg && node ./scripts/migrate.mjs"
     },
     "dependencies": {
         "@vercel/postgres": "^0.3.0",
