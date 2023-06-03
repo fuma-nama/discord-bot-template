@@ -65,7 +65,7 @@ pnpm run db:push
 
 Please make sure all environment variables are all settled before running the command.
 
-Learn More about Prisma ORM from their [documentation](https://www.prisma.io/docs/getting-started/quickstart).
+Learn More about Prisma ORM from their [documentation](https://orm.drizzle.team/docs/quick-start).
 
 ## Project Structure
 
