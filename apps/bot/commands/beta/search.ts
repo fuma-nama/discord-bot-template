@@ -1,5 +1,5 @@
+import { db, test } from "db";
 import { protectedCommand } from "@/utils/dfp.js";
-import { prisma } from "@/utils/prisma.js";
 import { options } from "@discord-fp/djs";
 
 export default protectedCommand.slash({
@@ -8,7 +8,7 @@ export default protectedCommand.slash({
         query: options.string({
             description: "What to search",
             async autoComplete(e) {
-                const entries = await prisma.test.findMany({ take: 10 });
+                const entries = await db.select().from(test).limit(10);
 
                 e.respond(
                     entries.map((item) => ({

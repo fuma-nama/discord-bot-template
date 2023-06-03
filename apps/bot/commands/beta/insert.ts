@@ -1,5 +1,5 @@
 import { protectedCommand } from "@/utils/dfp.js";
-import { prisma } from "@/utils/prisma.js";
+import { db, test } from "db";
 import { options } from "@discord-fp/djs";
 
 export default protectedCommand.slash({
@@ -14,15 +14,16 @@ export default protectedCommand.slash({
         dm: false,
     },
     async execute({ event, options, ctx }) {
-        const result = await prisma.test.create({
-            data: {
-                guild_id: event.guildId!,
+        const res = await db
+            .insert(test)
+            .values({
+                guildId: event.guildId!,
                 value: options.value,
-            },
-        });
+            })
+            .returning();
 
         await event.reply(
-            `Inserted data: ${result.value} (${result.id}) (ctx: ${ctx.message})`
+            `Inserted data: ${options.value} (${res[0].id}) (ctx: ${ctx.message})`
         );
     },
 });
