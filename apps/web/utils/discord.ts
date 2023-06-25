@@ -1,6 +1,7 @@
 export type UserInfo = {
     id: string;
     username: string;
+    global_name?: string;
     discriminator: string;
     avatar: string;
     mfa_enabled?: boolean;
