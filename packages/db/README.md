@@ -32,5 +32,5 @@ Despite Vercel Postgres, You may want to use another database provider, such as 
 You need to update:
 
 -   The `db:push` command in `package.json`
--   Migrate script in `./scripts/migrate.mjs`
+-   Migrate script in `./scripts/migrate.mjs`. If you're using MySQL, you can replace it with the [`drizzle-kit push:`](https://orm.drizzle.team/kit-docs/commands#prototype--push) command instead.
 -   Database client & schema in `./src/db.ts` and `./src/schema.ts`
