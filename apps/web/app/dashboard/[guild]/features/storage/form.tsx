@@ -2,12 +2,10 @@
 import { Button } from "ui/components/button";
 import { useForm } from "react-hook-form";
 import { Data, insert } from "./actions";
-import { useTransition } from "react";
 import { Input } from "ui/components/input";
+import { experimental_useFormStatus } from "react-dom";
 
 export function StorageForm({ guild }: { guild: string }) {
-    const [isPending, startTransition] = useTransition();
-
     const {
         register,
         handleSubmit,
@@ -19,13 +17,13 @@ export function StorageForm({ guild }: { guild: string }) {
         },
     });
 
-    const onSubmit = handleSubmit((v) => {
+    const onSubmit = handleSubmit(async (v) => {
         reset({ message: "" });
-        return startTransition(() => insert(guild, v));
+        await insert(guild, v);
     });
 
     return (
-        <form className="flex flex-row gap-4" onSubmit={onSubmit}>
+        <form className="flex flex-row gap-4" action={() => onSubmit()}>
             <div className="flex-1">
                 <Input
                     {...register("message", {
@@ -40,7 +38,13 @@ export function StorageForm({ guild }: { guild: string }) {
                     </p>
                 )}
             </div>
-            <Button disabled={isPending}>Create</Button>
+            <Create />
         </form>
     );
+}
+
+function Create() {
+    const { pending } = experimental_useFormStatus();
+
+    return <Button disabled={pending}>Create</Button>;
 }

@@ -12,7 +12,7 @@ import { Role } from "@/utils/discord";
 import { Controller, useForm } from "react-hook-form";
 import { Data, save } from "./actions";
 import { useEffect, useTransition } from "react";
-import { MusicFeature } from "@prisma/client";
+import { MusicFeature } from "db";
 
 export function Form({
     guild,
@@ -26,7 +26,7 @@ export function Form({
     const [isPending, startTransition] = useTransition();
     const { control, formState, reset, handleSubmit } = useForm<Data>({
         defaultValues: {
-            role: data?.controller_role ?? null,
+            role: data?.controllerRole ?? null,
         },
     });
 
@@ -36,7 +36,7 @@ export function Form({
 
     useEffect(() => {
         reset({
-            role: data?.controller_role ?? null,
+            role: data?.controllerRole ?? null,
         });
     }, [data]);
 

@@ -1,32 +1,20 @@
 {
-    "display": "Next.js",
-    "extends": "config/base.json",
+    "extends": "config/nextjs.json",
     "compilerOptions": {
-        "baseUrl": ".",
         "plugins": [{ "name": "next" }],
-        "allowJs": true,
-        "declaration": false,
-        "declarationMap": false,
-        "incremental": true,
-        "jsx": "preserve",
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "module": "esnext",
-        "noEmit": true,
-        "resolveJsonModule": true,
-        "strict": true,
-        "target": "es5",
+        "baseUrl": ".",
         "paths": {
             "@/*": ["./*"],
-            "contentlayer/generated": [".contentlayer/generated"]
-        }
+            "contentlayer/generated": ["./.contentlayer/generated"]
+        },
+        "preserveSymlinks": false
     },
     "include": [
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        ".contentlayer/generated",
-        "contentlayer.config.ts"
+        ".contentlayer/generated"
     ],
     "exclude": ["node_modules"]
 }

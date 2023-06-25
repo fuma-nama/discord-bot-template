@@ -55,7 +55,7 @@ Notice that you need to update Prisma schema as your database change.
 
 ### Database
 
-This project uses [Prisma ORM](https://www.prisma.io/), you may migrate to other ORMs such as Drizzle ORM if you wanted.
+This project uses [Drizzle ORM](https://orm.drizzle.team/) and [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres), you may migrate to other ORMs and database provider if you wanted.
 
 Push database changes:
 
@@ -65,7 +65,7 @@ pnpm run db:push
 
 Please make sure all environment variables are all settled before running the command.
 
-Learn More about Prisma ORM from their [documentation](https://www.prisma.io/docs/getting-started/quickstart).
+Learn More about Drizzle ORM from their [documentation](https://orm.drizzle.team/docs/quick-start).
 
 ## Project Structure
 
@@ -76,7 +76,8 @@ This project is using Turborepo, you can learn more about it from their [documen
 | [apps/web](./apps/web/README.md)           | Web App + Documentation (Frontend) |
 | [apps/bot](./apps/bot/README.md)           | Discord Bot                        |
 | [packages/docs](./packages/docs/README.md) | Documentation (Content + Utils)    |
-| [packages/ui](./packages/ui/)              | Components & Utils                 |
+| [packages/ui](./packages/ui/README.md)     | Components & Utils                 |
+| [packages/db](./packages/db/README.md)     | Database Schema & Client           |
 | packages/config                            | Configuration Files                |
 
 _Learn more about these packages by reading their README.md file_

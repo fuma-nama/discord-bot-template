@@ -4,7 +4,7 @@ import { Input } from "ui/components/input";
 import { useEffect, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { Data, updateSettings } from "./actions";
-import { Settings } from "@prisma/client";
+import { Settings } from "db";
 import { Field } from "ui/components/form";
 
 export function SettingsForm({

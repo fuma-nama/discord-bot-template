@@ -1,7 +1,7 @@
 "use server";
 
+import { db, eq, musicFeature } from "db";
 import { checkPermissions } from "@/utils/actions/permissions";
-import { prisma } from "@/utils/prisma";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
@@ -17,18 +17,19 @@ export async function save(guild: string, raw: Data) {
     await checkPermissions(guild);
     const data = schema.parse(raw);
 
-    await prisma.musicFeature.upsert({
-        where: {
-            guild_id: guild,
-        },
-        create: {
-            guild_id: guild,
-            controller_role: data.role,
-        },
-        update: {
-            controller_role: data.role,
-        },
-    });
+    const res = await db
+        .update(musicFeature)
+        .set({
+            controllerRole: data.role,
+        })
+        .where(eq(musicFeature.guildId, guild));
+
+    if (res.rowCount === 0) {
+        await db.insert(musicFeature).values({
+            guildId: guild,
+            controllerRole: data.role,
+        });
+    }
 
     revalidatePath(`/dashboard/${guild}/features/music`);
 }

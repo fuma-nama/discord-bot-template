@@ -81,7 +81,7 @@ async function UserWithName() {
                 fallback={user.username}
             />
             <p className="font-medium text-sm overflow-hidden flex-1 w-0 overflow-ellipsis whitespace-nowrap">
-                {user.username}
+                {user.global_name ?? user.username}
             </p>
         </div>
     );

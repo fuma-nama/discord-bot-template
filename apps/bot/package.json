@@ -14,6 +14,7 @@
     "dependencies": {
         "@discord-fp/djs": "4.0.1",
         "config": "workspace:*",
+        "db": "workspace:*",
         "discord.js": "14.11.0",
         "kafkajs": "^2.2.4",
         "zod": "^3.21.4"

@@ -9,7 +9,7 @@ import {
     SelectContent,
     SelectItem,
 } from "ui/components/select";
-import { WelcomeFeature } from "@prisma/client";
+import { WelcomeFeature } from "db";
 import { Controller, useForm } from "react-hook-form";
 import { Data, disable, save } from "./actions";
 import { useEffect, useTransition } from "react";
@@ -29,7 +29,7 @@ export function UpdateForm({
     const { control, register, formState, reset, handleSubmit } = useForm<Data>(
         {
             defaultValues: {
-                channel: feature.channel_id,
+                channel: feature.channelId,
                 message: feature.message,
             },
         }
@@ -37,7 +37,7 @@ export function UpdateForm({
 
     useEffect(() => {
         reset({
-            channel: feature.channel_id,
+            channel: feature.channelId,
             message: feature.message,
         });
     }, [feature]);
@@ -122,7 +122,7 @@ export function UpdateForm({
                             type="button"
                             onClick={() => {
                                 reset({
-                                    channel: feature.channel_id,
+                                    channel: feature.channelId,
                                     message: feature.message,
                                 });
                             }}

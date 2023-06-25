@@ -5,10 +5,6 @@
             "path": "../"
         },
         {
-            "name": "packages/config",
-            "path": "../packages/config"
-        },
-        {
             "name": "apps/bot",
             "path": "../apps/bot"
         },
@@ -17,8 +13,16 @@
             "path": "../apps/web"
         },
         {
+            "name": "packages/config",
+            "path": "../packages/config"
+        },
+        {
             "name": "packages/docs",
             "path": "../packages/docs"
+        },
+        {
+            "name": "packages/db",
+            "path": "../packages/db"
         },
         {
             "name": "packages/ui",
