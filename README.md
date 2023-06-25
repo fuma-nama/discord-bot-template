@@ -5,9 +5,10 @@ The powerful discord bot template with Next.js Dashboard and Discord.js v14.
 ## Features
 
 -   [x] Node.js Discord Bot with discord-fp
--   [x] Kafka Event Streaming
 -   [x] Dashboard using Next.js App Router
 -   [x] Documentation Website
+-   [x] Kafka Event Streaming (Communication between server and dashboard)
+-   [x] Database (Default: Vercel Posgres + Drizzle ORM)
 
 ## Quick Start
 
