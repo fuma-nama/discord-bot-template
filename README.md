@@ -52,7 +52,7 @@ Required variables are listed in [.env.example](/.env.example).
 
 This project uses [Upstash Kafka](https://upstash.com/), you can register an account and get required credentials there.
 
-Notice that you need to update Prisma schema as your database change.
+By default, it uses [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres) as the database provider, please follow their docs to setup database.
 
 ### Database
 
@@ -104,7 +104,7 @@ export async function myAction() {
 
 ### Don't depend on "Server"
 
-We use Kafka for handling real operations via dashboard, so that no requests will be sent to the server that hosts the discord bot directly.
+We use Kafka for handling real-time operations via dashboard, so that no requests will be sent to the server that hosts the discord bot directly.
 
 This brings a faster load speed and more better stability because the dashboad will still works even if the discord bot is temporarily unavailable.
 
@@ -112,7 +112,11 @@ This brings a faster load speed and more better stability because the dashboad w
 
 The dashboard is built for serverless, you are able to deploy it to any serverless hosting platforms such as Vercel, Azure and AWS.
 
-Notice that the Discord bot server can only be deployed to traditional Node.js Server hosting services, serverless environment is incompatible.
+<details>
+  <summary>Notice that the Discord bot server can only be deployed to traditional Node.js Server hosting services, serverless environment is incompatible.</summary>
+    
+  Because they will connect to the Discord Gateway or even need a sharding manager which isn't suitable in a serverless environment.
+</details>
 
 ## Typesafe
 
