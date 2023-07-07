@@ -15,10 +15,10 @@
         "config": "workspace:*",
         "encoding": "^0.1.13",
         "lucide-react": "^0.220.0",
-        "next": "^13.4.8",
+        "next": "^13.4.9",
         "next-themes": "^0.2.1",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "react-hook-form": "^7.43.9",
         "recharts": "^2.6.2",
         "swr": "^2.1.5",
@@ -32,8 +32,8 @@
         "remark-gfm": "^3.0.1"
     },
     "devDependencies": {
-        "@types/node": "20.2.0",
-        "@types/react": "18.2.6",
-        "@types/react-dom": "18.2.4"
+        "@types/node": "^20.2.0",
+        "@types/react": "^18.2.6",
+        "@types/react-dom": "^18.2.4"
     }
 }
