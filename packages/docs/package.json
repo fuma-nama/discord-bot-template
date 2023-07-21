@@ -14,7 +14,7 @@
         "unist-util-visit": "^4.1.2"
     },
     "devDependencies": {
-        "next": "^13.4.9",
+        "next": "^13.4.11",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "@types/flexsearch": "0.7.3",
